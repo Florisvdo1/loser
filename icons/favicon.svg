@@ -1,0 +1,20 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22457E"/>
+      <stop offset="1" stop-color="#0F2548"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Simplified nose curve -->
+  <path d="M 24 14 Q 28 26 30 36 Q 32 44 38 46 Q 42 50 36 52 Q 30 53 26 50"
+        fill="none" stroke="#FAF8F4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  <!-- Bandage with red plus -->
+  <g transform="rotate(-22 32 32)">
+    <rect x="14" y="28" width="36" height="9" rx="2" fill="#FDFAF3" stroke="#0A0A0A" stroke-width="0.6"/>
+    <g fill="#B91C1C">
+      <rect x="30" y="29.4" width="4" height="6.2" rx="0.5"/>
+      <rect x="29" y="30.9" width="6" height="3.2" rx="0.5"/>
+    </g>
+  </g>
+</svg>
