@@ -2,1839 +2,1778 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
-<title>Kuur · Flucloxacilline</title>
-
-<!-- PWA -->
-<link rel="manifest" href="./manifest.webmanifest" />
-<link rel="icon" type="image/svg+xml" href="./icons/favicon.svg" />
-<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no, maximum-scale=1" />
+<meta name="theme-color" content="#0A0E1A" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Kuur" />
-<meta name="theme-color" content="#0E2244" media="(prefers-color-scheme: dark)" />
-<meta name="theme-color" content="#FAF6EC" media="(prefers-color-scheme: light)" />
+<meta name="mobile-web-app-capable" content="yes" />
 <meta name="format-detection" content="telephone=no" />
-<meta name="color-scheme" content="light" />
+<meta name="description" content="Kuur App — privé medicatie companion voor een 10-daagse kuur." />
 
-<!-- Editorial typography -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" />
+<title>Kuur</title>
+
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="./icons/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16.png" />
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+<link rel="mask-icon" href="./icons/favicon.svg" color="#D4B888" />
 
 <style>
-/* ========================================================================
-   KUUR — Flucloxacilline tracker
-   Private medication intake app for Floris van den Oever
-   Editorial luxury × clinical precision
-   ======================================================================== */
+/* ───────────────────────────────────────────────────────────
+   Kuur · v2 · design system
+   ─────────────────────────────────────────────────────────── */
 
-:root {
-  /* Paper & ink */
-  --paper:        #FAF6EC;
-  --paper-2:      #F2EBD8;
-  --paper-3:      #E8DFC6;
-  --paper-edge:   #DCD2B6;
-  --ink:          #0F1B2D;
-  --ink-soft:     #2B374A;
-  --ink-muted:    #6B7589;
-  --ink-faint:    #A1A8B6;
+:root{
+  /* surface */
+  --bg:           #0A0E1A;
+  --bg-soft:      #0E1320;
+  --bg-elev:      #131829;
 
-  /* Medical blues */
-  --blue:         #1B3A6F;
-  --blue-deep:    #0E2244;
-  --blue-tint:    #E5EDF7;
-  --blue-line:    #C5D3E8;
+  /* surfaces (glass) */
+  --surface:      rgba(255,255,255,0.035);
+  --surface-2:    rgba(255,255,255,0.055);
+  --surface-3:    rgba(255,255,255,0.075);
 
-  /* Surgical reds */
-  --red:          #B91C1C;
-  --red-deep:     #7F1D1D;
-  --red-soft:     #FBE9E9;
+  /* text */
+  --text:         #F4EFE3;       /* warm white */
+  --text-2:       #B5BDCE;       /* muted blue-gray */
+  --text-3:       #6B7691;       /* deep muted */
+  --text-dim:     #4A5469;
 
-  /* Capsule */
-  --pill-brown-1: #8B5A2B;
-  --pill-brown-2: #6B4423;
-  --pill-brown-3: #4A2E16;
-  --pill-cream-1: #ECE5D6;
-  --pill-cream-2: #C9C2B5;
-  --pill-cream-3: #9C9588;
+  /* accents */
+  --gold:         #D4B888;       /* champagne */
+  --gold-soft:    rgba(212,184,136,0.14);
+  --gold-line:    rgba(212,184,136,0.32);
 
-  /* Typography stack */
-  --serif:        'Instrument Serif', 'Times New Roman', Georgia, serif;
-  --sans:         'Geist', -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
-  --mono:         'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --mint:         #8DD4B5;       /* medical mint */
+  --mint-soft:    rgba(141,212,181,0.12);
+  --mint-line:    rgba(141,212,181,0.30);
+  --mint-deep:    #4FA88A;
 
-  /* Spacing rhythm */
-  --pad:          16px;
-  --pad-sm:       8px;
-  --pad-lg:       24px;
-  --gap:          2pt;     /* user-spec: 2pt between containers */
-  --radius:       18px;
-  --radius-lg:    26px;
-  --radius-pill:  999px;
+  --coral:        #E0998A;       /* gedempte coral */
+  --coral-soft:   rgba(224,153,138,0.12);
+  --coral-line:   rgba(224,153,138,0.32);
 
-  /* Shadows */
-  --shadow-soft: 0 1px 0 rgba(15,27,45,.04), 0 6px 16px -8px rgba(15,27,45,.10);
-  --shadow-mid:  0 2px 0 rgba(15,27,45,.05), 0 14px 32px -12px rgba(15,27,45,.18);
-  --shadow-deep: 0 30px 60px -20px rgba(15,27,45,.35);
+  --border:       rgba(255,255,255,0.07);
+  --border-2:     rgba(255,255,255,0.12);
+  --border-3:     rgba(255,255,255,0.18);
 
-  /* Motion */
-  --ease:        cubic-bezier(.22,1,.36,1);
-  --ease-out:    cubic-bezier(.16,1,.3,1);
-  --d-fast:      180ms;
-  --d-mid:       320ms;
-  --d-slow:      540ms;
+  --shadow-sm:    0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 12px rgba(0,0,0,0.30);
+  --shadow:       0 1px 0 rgba(255,255,255,0.05) inset, 0 12px 32px rgba(0,0,0,0.45);
+  --shadow-lg:    0 1px 0 rgba(255,255,255,0.06) inset, 0 24px 60px rgba(0,0,0,0.55);
+
+  --radius-xs:    8px;
+  --radius-sm:    12px;
+  --radius:       16px;
+  --radius-lg:    22px;
+  --radius-xl:    28px;
+
+  --tap:          44px;
+
+  --ease:         cubic-bezier(.2,.8,.2,1);
+  --ease-out:     cubic-bezier(.16,1,.3,1);
+
+  --safe-top:     env(safe-area-inset-top, 0px);
+  --safe-bot:     env(safe-area-inset-bottom, 0px);
 }
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html, body { margin: 0; padding: 0; height: 100%; }
-html { background: var(--paper); }
-body {
-  font-family: var(--sans);
-  font-size: 15px;
+/* ───────────────── reset ───────────────── */
+*,*::before,*::after{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  font-size: 16px;
   line-height: 1.45;
-  color: var(--ink);
-  background: var(--paper);
+  color: var(--text);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overscroll-behavior: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Subtle paper grain (noise texture) */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .35;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95   0 0 0 0 0.92   0 0 0 0 0.85   0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-}
-
-button, input, select { font: inherit; color: inherit; }
-button { background: none; border: 0; padding: 0; cursor: pointer; }
-
-/* ===== App shell ===== */
-.app {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  padding-top:    env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left:   env(safe-area-inset-left);
-  padding-right:  env(safe-area-inset-right);
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* ===== Top bar ===== */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px var(--pad) 8px;
-  flex-shrink: 0;
-  position: relative;
-}
-.topbar .brand {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.topbar .brand-mark {
-  width: 28px; height: 28px;
-  border-radius: 8px;
-  display: grid; place-items: center;
-  background: linear-gradient(180deg, #264F8C 0%, #173366 50%, #0C1F40 100%);
-  box-shadow: 0 4px 12px -4px rgba(15,27,45,.45), inset 0 1px 0 rgba(255,255,255,.18);
-}
-.topbar .brand-mark svg { width: 18px; height: 18px; }
-.topbar .brand-name {
-  font-family: var(--serif);
-  font-size: 22px;
-  letter-spacing: .2px;
-  line-height: 1;
-  font-style: italic;
-  color: var(--ink);
-}
-.topbar .brand-sub {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--ink-muted);
-  display: block;
-  margin-top: 2px;
-}
-
-.topbar .actions { display: flex; gap: 8px; align-items: center; }
-.topbar button.icon {
-  width: 36px; height: 36px;
-  border-radius: 12px;
-  background: var(--paper-2);
-  display: grid; place-items: center;
-  border: 1px solid var(--paper-edge);
-  transition: background var(--d-fast) var(--ease), transform var(--d-fast) var(--ease);
-}
-.topbar button.icon:active { transform: scale(0.94); background: var(--paper-3); }
-.topbar button.icon svg { width: 16px; height: 16px; stroke: var(--ink-soft); }
-
-/* ===== Page container ===== */
-.pages {
-  flex: 1;
-  overflow-y: auto;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+button{
+  font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0;
+  cursor: pointer;
+}
+button:focus-visible, a:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+img,svg{ display:block; max-width:100%; }
+[hidden]{ display:none !important; }
+
+/* ───────────────── ambient bg ─────────────────
+   Deep midnight wash with two soft auroras and grain. */
+body::before{
+  content:""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(70% 50% at 12% 0%, rgba(212,184,136,0.10), transparent 60%),
+    radial-gradient(60% 45% at 100% 18%, rgba(141,212,181,0.08), transparent 65%),
+    radial-gradient(80% 60% at 50% 100%, rgba(20,28,52,0.55), transparent 70%),
+    linear-gradient(180deg, #08101F 0%, #070B16 60%, #06080F 100%);
+}
+body::after{
+  content:""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.85  0 0 0 0 0.85  0 0 0 0 0.85  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+/* ───────────────── app shell ───────────────── */
+.app{
+  position: relative; z-index: 1;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: calc(var(--safe-top) + 12px) 16px calc(var(--safe-bot) + 120px);
+  display: flex; flex-direction: column;
+}
+
+/* ───────────────── topbar ───────────────── */
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 4px 4px 18px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+}
+.brand-mark{
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(160deg, #1A2238 0%, #0E1320 100%);
+  border: 1px solid var(--border-2);
+  display:grid; place-items:center;
+  box-shadow: var(--shadow-sm);
+}
+.brand-name{
+  font-size: 17px; font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+.brand-sub{
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+.brand-text{ display:flex; flex-direction:column; line-height:1; gap:2px; }
+.topbar-action{
+  width: var(--tap); height: var(--tap);
+  border-radius: 12px;
+  display: grid; place-items: center;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all .25s var(--ease);
+}
+.topbar-action:active{ transform: scale(.94); background: var(--surface-2); }
+
+/* ───────────────── page surface ───────────────── */
+.page{
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  animation: pageIn .35s var(--ease-out);
+}
+.page.is-active{ display: flex; }
+@keyframes pageIn{
+  from{ opacity: 0; transform: translateY(8px); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+
+/* ───────────────── shared blocks ───────────────── */
+.section-eyebrow{
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 4px;
+}
+.section-eyebrow::before{
+  content:""; width: 14px; height: 1px;
+  background: var(--gold-line);
+}
+.section-title{
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+.section-title em{
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold);
+}
+.section-lead{
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin: 0;
+}
+
+/* ───────────────── card ───────────────── */
+.card{
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+.card-tight{ padding: 14px; }
+.card-sub{ font-size: 13px; color: var(--text-2); }
+
+/* ───────────────── HERO — Vandaag ───────────────── */
+.hero{
+  position: relative;
+  overflow: hidden;
+  padding: 22px 22px 24px;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(212,184,136,0.18), transparent 55%),
+    radial-gradient(100% 90% at 0% 100%, rgba(141,212,181,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid var(--border-2);
+  box-shadow: var(--shadow-lg);
+}
+.hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(140% 60% at 50% -10%, rgba(255,255,255,0.06), transparent 60%);
+  border-radius: inherit;
+}
+.hero-day-row{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+}
+.hero-day-label{
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600;
+  margin-bottom: 6px;
+  display:flex; align-items:center; gap:8px;
+}
+.hero-day-label::before{
+  content:""; width:6px; height:6px; border-radius:50%; background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,184,136,0.18);
+}
+.hero-day{
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  font-feature-settings: "tnum","ss01";
+}
+.hero-day-of{
+  font-size: 18px;
+  color: var(--text-3);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.hero-progress-ring{ flex-shrink: 0; }
+
+.hero-meta{
+  margin-top: 16px;
+  display:grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.hero-stat{
+  background: rgba(0,0,0,0.18);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+.hero-stat-label{
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-3); font-weight: 600;
+}
+.hero-stat-value{
+  font-size: 18px; font-weight: 600;
+  color: var(--text);
+  margin-top: 4px;
+  font-feature-settings: "tnum";
+  display:flex; align-items:baseline; gap:6px;
+}
+.hero-stat-value small{
+  font-size: 12px; color: var(--text-3); font-weight: 500;
+}
+
+/* ───────────────── doses ───────────────── */
+.doses{
+  display: flex; flex-direction: column; gap: 10px;
+}
+.dose{
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.012));
+  border: 1px solid var(--border);
+  transition: all .3s var(--ease);
+  min-height: 76px;
+}
+.dose.is-next{
+  border-color: var(--gold-line);
+  background: linear-gradient(180deg, rgba(212,184,136,0.10), rgba(212,184,136,0.025));
+  box-shadow: 0 0 0 1px var(--gold-line) inset, 0 8px 24px rgba(212,184,136,0.08);
+}
+.dose.is-taken{
+  border-color: var(--mint-line);
+  background: linear-gradient(180deg, rgba(141,212,181,0.08), rgba(141,212,181,0.02));
+}
+.dose.is-missed{
+  border-color: var(--coral-line);
+  background: linear-gradient(180deg, rgba(224,153,138,0.06), rgba(224,153,138,0.015));
+}
+
+.dose-num{
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+  position: relative;
+  transition: all .3s var(--ease);
+}
+.dose-num-text{
+  font-size: 13px; font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  font-feature-settings: "tnum";
+}
+.dose-num-text small{ font-size: 10px; color: var(--text-3); }
+.dose.is-taken .dose-num{
+  background: linear-gradient(160deg, var(--mint), var(--mint-deep));
+  border-color: var(--mint);
+  box-shadow: 0 6px 16px rgba(141,212,181,0.25);
+}
+.dose.is-taken .dose-num-text{ display:none; }
+.dose-check{
+  position: absolute; inset: 0; display: none;
+  place-items: center; color: #0A1A14;
+}
+.dose.is-taken .dose-check{
+  display: grid;
+  animation: checkPop .45s var(--ease-out);
+}
+@keyframes checkPop{
+  0%  { transform: scale(.4); opacity: 0; }
+  60% { transform: scale(1.18); opacity: 1; }
+  100%{ transform: scale(1); opacity: 1; }
+}
+
+.dose-body{ min-width: 0; }
+.dose-title{
+  font-size: 15px; font-weight: 600; color: var(--text);
+  margin: 0 0 2px;
+  letter-spacing: -0.01em;
+}
+.dose-meta{
+  font-size: 12.5px; color: var(--text-3);
+  display: flex; align-items: center; gap: 6px;
+  font-feature-settings: "tnum";
+}
+.dose-meta .dot{ width:3px; height:3px; border-radius:50%; background: currentColor; opacity:.6; }
+.dose.is-taken .dose-meta{ color: var(--mint); }
+.dose.is-missed .dose-meta{ color: var(--coral); }
+
+.dose-action{
+  width: var(--tap); height: var(--tap);
+  border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  color: var(--text-2);
+  transition: all .25s var(--ease);
+  flex-shrink: 0;
+}
+.dose-action:active{ transform: scale(.92); }
+.dose.is-taken .dose-action{
+  background: var(--mint-soft);
+  border-color: var(--mint-line);
+  color: var(--mint);
+}
+
+/* tertiary "missed" link, subtle */
+.dose-secondary{
+  grid-column: 2 / 4;
+  margin-top: 4px;
+  display: flex; gap: 12px;
+  font-size: 12px;
+}
+.dose-link{
+  color: var(--text-3);
+  font-weight: 500;
+  padding: 4px 8px;
+  margin: -4px -8px;
+  border-radius: 8px;
+  transition: color .2s var(--ease);
+}
+.dose-link:hover{ color: var(--text-2); }
+.dose-link.is-active{ color: var(--coral); }
+
+/* ───────────────── hero CTA ───────────────── */
+.note-block{
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: rgba(212,184,136,0.06);
+  border: 1px solid var(--gold-line);
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.note-block-icon{
+  flex-shrink: 0; color: var(--gold);
+  margin-top: 1px;
+}
+.note-block-text{
+  font-size: 13px; line-height: 1.55; color: var(--text-2);
+}
+.note-block-text strong{ color: var(--text); font-weight: 600; }
+
+/* ───────────────── alarms ───────────────── */
+.alarms{
+  display: flex; flex-direction: column; gap: 12px;
+}
+.alarm{
+  padding: 16px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.014));
+  border: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.alarm-num{
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(212,184,136,0.18), rgba(212,184,136,0.06));
+  border: 1px solid var(--gold-line);
+  display: grid; place-items: center;
+  color: var(--gold);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+  font-feature-settings: "tnum";
+}
+.alarm-body{ min-width: 0; }
+.alarm-label{
+  font-size: 14px; font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.005em;
+  margin: 0 0 4px;
+}
+.alarm-timing{
+  font-size: 12.5px; color: var(--text-3); line-height: 1.4;
+}
+
+.alarm-time-pill{
+  margin-top: 10px;
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-2);
+  font-feature-settings: "tnum";
+}
+.alarm-time-pill .label{ color: var(--text-3); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+.alarm-time-pill .time{ color: var(--gold); font-weight: 600; }
+
+/* ───────────────── primary buttons ───────────────── */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--tap);
+  padding: 0 18px;
+  border-radius: 14px;
+  font-size: 15px; font-weight: 600;
+  letter-spacing: -0.005em;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+  border: 1px solid var(--border-2);
+  color: var(--text);
+  transition: transform .15s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+  width: 100%;
+  text-align: center;
   position: relative;
 }
-.pages::-webkit-scrollbar { display: none; }
+.btn:active{ transform: scale(.985); background: rgba(255,255,255,0.07); }
 
-.page {
-  display: none;
-  padding: 0 var(--pad) 110px;
-  animation: pageIn var(--d-mid) var(--ease-out);
+.btn-primary{
+  background: linear-gradient(180deg, #E8CFA0, #C9A876);
+  border-color: rgba(255,255,255,0.25);
+  color: #1A1308;
+  box-shadow: 0 12px 30px rgba(212,184,136,0.25), 0 1px 0 rgba(255,255,255,0.4) inset;
 }
-.page.active { display: block; }
-@keyframes pageIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+.btn-primary:active{ background: linear-gradient(180deg, #D8BD8E, #B89866); }
+
+.btn-mint{
+  background: linear-gradient(180deg, #A8E0C4, #6FBF9D);
+  border-color: rgba(255,255,255,0.22);
+  color: #07271C;
+  box-shadow: 0 10px 24px rgba(141,212,181,0.22), 0 1px 0 rgba(255,255,255,0.35) inset;
 }
 
-/* ===== Page header (editorial) ===== */
-.page-head {
-  padding: 6px 0 18px;
+.btn-ghost{
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-2);
 }
-.page-head .eyebrow {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  display: flex;
-  align-items: center;
+
+.btn-danger{
+  background: rgba(224,153,138,0.08);
+  border-color: var(--coral-line);
+  color: var(--coral);
+}
+.btn-row{ display:flex; gap:10px; }
+.btn-row > *{ flex: 1 1 0; }
+
+/* ───────────────── progress / 10-day grid ───────────────── */
+.tenday{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 8px;
 }
-.page-head .eyebrow .dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--red);
-  display: inline-block;
-}
-.page-head h1 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 0.95;
-  margin: 6px 0 8px;
-  letter-spacing: -1px;
-  color: var(--ink);
-}
-.page-head h1 em {
-  font-style: italic;
-  color: var(--blue);
-}
-.page-head .lede {
-  font-family: var(--sans);
-  color: var(--ink-soft);
-  font-size: 13.5px;
-  max-width: 30ch;
-  line-height: 1.5;
-}
-
-/* ===== Stat strip ===== */
-.stat-strip {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: var(--gap);
-  margin: 4px 0 18px;
-}
-.stat-cell {
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  border-radius: var(--radius);
-  padding: 12px 12px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 78px;
-  position: relative;
-  overflow: hidden;
-}
-.stat-cell .k {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  text-transform: uppercase;
-  letter-spacing: 1.3px;
-  color: var(--ink-muted);
-}
-.stat-cell .v {
-  font-family: var(--serif);
-  font-size: 30px;
-  line-height: 1;
-  color: var(--ink);
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-.stat-cell .v .unit {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-muted);
-  letter-spacing: 0;
-}
-
-/* ===== Day selector ===== */
-.day-strip-wrap {
-  margin: 0 calc(-1 * var(--pad)) 14px;
-  position: relative;
-}
-.day-strip-wrap::before, .day-strip-wrap::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 14px; pointer-events: none; z-index: 2;
-}
-.day-strip-wrap::before { left: 0; background: linear-gradient(90deg, var(--paper), transparent); }
-.day-strip-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--paper), transparent); }
-.day-strip {
-  display: flex;
-  gap: var(--gap);
-  overflow-x: auto;
-  padding: 4px var(--pad);
-  scroll-snap-type: x mandatory;
-}
-.day-strip::-webkit-scrollbar { display: none; }
-.day-cell {
-  flex: 0 0 auto;
-  width: 56px; height: 64px;
+.tenday-cell{
+  aspect-ratio: 1 / 1;
   border-radius: 14px;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  scroll-snap-align: center;
-  transition: all var(--d-fast) var(--ease);
-  position: relative;
-}
-.day-cell .d-num {
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1;
-  color: var(--ink);
-}
-.day-cell .d-lbl {
-  font-family: var(--mono);
-  font-size: 8.5px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--ink-muted);
-}
-.day-cell.active {
-  background: var(--blue-deep);
-  border-color: var(--blue-deep);
-}
-.day-cell.active .d-num { color: var(--paper); }
-.day-cell.active .d-lbl { color: var(--blue-line); }
-.day-cell.complete::after {
-  content: '';
-  position: absolute;
-  top: 6px; right: 6px;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--red);
-}
-.day-cell.today {
-  outline: 1.5px solid var(--red);
-  outline-offset: 2px;
-}
-
-/* ===== Pill grid (block-square 2×2) ===== */
-.pill-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-}
-.pill-cell {
-  aspect-ratio: 1 / 1;       /* perfect block square */
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  border-radius: var(--radius);
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px;
+  transition: all .25s var(--ease);
   position: relative;
   overflow: hidden;
-  transition: transform var(--d-fast) var(--ease), background var(--d-mid) var(--ease);
-  display: flex;
-  flex-direction: column;
 }
-.pill-cell:active { transform: scale(0.985); }
+.tenday-cell.is-today{
+  border-color: var(--gold-line);
+  background: rgba(212,184,136,0.08);
+}
+.tenday-cell.is-future{ opacity: .55; }
+.tenday-day{
+  font-size: 11px; color: var(--text-3); letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.tenday-fraction{
+  font-size: 16px; font-weight: 600;
+  color: var(--text);
+  font-feature-settings: "tnum";
+}
+.tenday-cell.is-complete{
+  border-color: var(--mint-line);
+  background: rgba(141,212,181,0.10);
+}
+.tenday-cell.is-complete .tenday-fraction{ color: var(--mint); }
 
-.pill-cell .pc-time {
-  position: absolute;
-  top: 12px; left: 12px;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: 0;
-}
-.pill-cell .pc-bell {
-  position: absolute;
-  top: 8px; right: 8px;
-  width: 30px; height: 30px;
-  border-radius: 10px;
-  display: grid; place-items: center;
-  background: transparent;
-  transition: background var(--d-fast) var(--ease);
-}
-.pill-cell .pc-bell:active { background: var(--paper-3); }
-.pill-cell .pc-bell svg { width: 14px; height: 14px; stroke: var(--ink-faint); fill: none; stroke-width: 1.6; }
-.pill-cell .pc-bell.on svg { stroke: var(--red); fill: var(--red); }
-
-.pill-cell .pc-pill {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  padding: 12px 10px 6px;
+.bar{
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  overflow: hidden;
   position: relative;
 }
-.pill-cell .pc-pill svg.capsule {
-  width: 78%;
-  height: auto;
-  filter: drop-shadow(0 4px 10px rgba(15,27,45,.18));
-  transition: transform var(--d-mid) var(--ease), filter var(--d-mid) var(--ease);
+.bar-fill{
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), #E8CFA0);
+  border-radius: 999px;
+  transition: width .55s var(--ease-out);
+  box-shadow: 0 0 12px rgba(212,184,136,0.4);
 }
-.pill-cell .pc-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 12px 12px;
-}
-.pill-cell .pc-dose {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--ink-muted);
-}
-.pill-cell .pc-check {
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  border: 1.4px solid var(--ink-faint);
-  display: grid; place-items: center;
-  transition: all var(--d-mid) var(--ease);
-  background: transparent;
-}
-.pill-cell .pc-check svg {
-  width: 12px; height: 12px;
-  stroke: var(--paper);
-  stroke-width: 2.2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 18;
-  stroke-dashoffset: 18;
-  transition: stroke-dashoffset var(--d-slow) var(--ease-out);
+.bar-fill.is-mint{
+  background: linear-gradient(90deg, var(--mint), #B5E3CC);
+  box-shadow: 0 0 12px rgba(141,212,181,0.4);
 }
 
-/* Taken state */
-.pill-cell.taken {
-  background: var(--blue-deep);
-  border-color: var(--blue-deep);
+.stats-grid{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
 }
-.pill-cell.taken .pc-time { color: var(--blue-line); }
-.pill-cell.taken .pc-dose { color: var(--blue-line); }
-.pill-cell.taken .pc-pill svg.capsule {
-  transform: scale(0.86) rotate(-6deg);
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,.4)) saturate(0.65) brightness(0.9);
+.stat-card{
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
-.pill-cell.taken .pc-check {
-  border-color: var(--red);
-  background: var(--red);
+.stat-label{
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-3); font-weight: 600;
 }
-.pill-cell.taken .pc-check svg { stroke-dashoffset: 0; }
-.pill-cell.taken .pc-bell svg { stroke: var(--blue-line); }
-.pill-cell.taken .pc-bell.on svg { stroke: var(--red-soft); fill: var(--red-soft); }
-
-/* Past missed dose hint */
-.pill-cell.missed:not(.taken) {
-  background: #FBF1E6;
-  border-color: #E9D5BA;
+.stat-value{
+  font-size: 24px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--text);
+  margin-top: 6px;
+  font-feature-settings: "tnum";
 }
-.pill-cell.missed:not(.taken) .pc-time::after {
-  content: '· gemist';
-  color: var(--red);
-  font-size: 11px;
+.stat-value small{
+  font-size: 13px; color: var(--text-3); font-weight: 500;
   margin-left: 4px;
 }
 
-/* Next dose highlight */
-.pill-cell.next:not(.taken) {
-  outline: 1.5px solid var(--red);
-  outline-offset: -1.5px;
+/* ───────────────── guide list ───────────────── */
+.rules{
+  display: flex; flex-direction: column; gap: 10px;
 }
-.pill-cell.next:not(.taken) .pc-pill::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(185,28,28,.07) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-/* ===== Schema notes (above grid) ===== */
-.schema-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 0 12px;
-  padding: 14px 14px;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  border-radius: var(--radius);
-}
-.schema-meta .label {
-  display: flex; align-items: center; gap: 10px;
-}
-.schema-meta .label svg { width: 18px; height: 18px; stroke: var(--blue); }
-.schema-meta .label-text .l1 {
-  font-family: var(--sans);
-  font-size: 13.5px;
-  font-weight: 500;
-}
-.schema-meta .label-text .l2 {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-.schema-meta .times {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink);
-  letter-spacing: 0.5px;
-  text-align: right;
-}
-
-/* ===== Add-to-calendar CTA ===== */
-.cta-row {
-  margin: 16px 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-}
-.cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.rule{
+  display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: flex-start;
   padding: 14px;
   border-radius: var(--radius);
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid transparent;
-  transition: all var(--d-fast) var(--ease);
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
-.cta:active { transform: scale(0.985); }
-.cta.primary {
-  background: var(--blue-deep);
-  color: var(--paper);
-}
-.cta.primary svg { stroke: var(--paper); }
-.cta.secondary {
-  background: var(--paper-2);
-  color: var(--ink);
-  border-color: var(--paper-edge);
-}
-.cta.secondary svg { stroke: var(--ink); }
-.cta svg { width: 14px; height: 14px; fill: none; stroke-width: 1.8; }
-
-/* ===== Course progress bar ===== */
-.course-progress {
-  margin: 16px 0 0;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  border-radius: var(--radius);
-  padding: 16px 16px 18px;
-  position: relative;
-  overflow: hidden;
-}
-.course-progress .head {
-  display: flex; justify-content: space-between; align-items: baseline;
-  margin-bottom: 10px;
-}
-.course-progress .title {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-.course-progress .pct {
-  font-family: var(--serif);
-  font-size: 28px;
-  line-height: 1;
-}
-.course-progress .pct .u {
-  font-family: var(--mono); font-size: 11px;
-  color: var(--ink-muted); margin-left: 2px;
-}
-.course-progress .bar {
-  height: 6px;
-  border-radius: 3px;
-  background: var(--paper-3);
-  overflow: hidden;
-  position: relative;
-}
-.course-progress .bar > i {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-deep) 100%);
-  border-radius: 3px;
-  transition: width var(--d-slow) var(--ease-out);
-}
-.course-progress .meta {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .8px;
-  color: var(--ink-muted);
-}
-
-/* ===== Bottom navigation ===== */
-.tabbar {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: calc(env(safe-area-inset-bottom) + 12px);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-  padding: 8px;
-  border-radius: 22px;
-  background: rgba(14, 34, 68, 0.92);
-  backdrop-filter: saturate(160%) blur(20px);
-  -webkit-backdrop-filter: saturate(160%) blur(20px);
-  box-shadow: var(--shadow-deep);
-  z-index: 10;
-}
-.tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 10px 6px;
-  border-radius: 16px;
-  color: rgba(250, 246, 236, .55);
-  transition: all var(--d-fast) var(--ease);
-  position: relative;
-}
-.tab:active { transform: scale(0.96); }
-.tab svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-.tab .lbl {
-  font-family: var(--mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-}
-.tab.active {
-  color: var(--paper);
-  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-}
-.tab.active::before {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%; transform: translateX(-50%);
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--red);
-}
-
-/* ===== Info page (editorial) ===== */
-.info-section {
-  margin: 0 0 14px;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  border-radius: var(--radius);
-  padding: 18px 18px 20px;
-}
-.info-section .ix {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  margin-bottom: 10px;
-}
-.info-section .ix .num {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1.4px;
-  color: var(--ink-muted);
-  text-transform: uppercase;
-}
-.info-section h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 1;
-  margin: 4px 0 12px;
-  letter-spacing: -.4px;
-}
-.info-section h3 em { font-style: italic; color: var(--blue); }
-.info-section p {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  margin: 0 0 10px;
-}
-.info-section ul { margin: 0; padding: 0; list-style: none; }
-.info-section li {
-  display: flex;
-  gap: 10px;
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--ink-soft);
-  padding: 6px 0;
-  border-bottom: 1px dashed var(--paper-edge);
-}
-.info-section li:last-child { border-bottom: none; }
-.info-section li .ico {
-  width: 18px; height: 18px;
-  flex: 0 0 18px;
-  margin-top: 1px;
+.rule-icon{
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-line);
   display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--blue-tint);
-  color: var(--blue-deep);
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 600;
+  color: var(--gold);
+  flex-shrink: 0;
 }
-.info-section li .ico.warn {
-  background: var(--red-soft);
-  color: var(--red-deep);
+.rule-icon.is-mint{ background: var(--mint-soft); border-color: var(--mint-line); color: var(--mint); }
+.rule-title{ font-size: 15px; font-weight: 600; color: var(--text); margin: 4px 0 2px; letter-spacing: -0.005em; }
+.rule-text{ font-size: 13px; line-height: 1.5; color: var(--text-2); }
+
+/* ───────────────── settings ───────────────── */
+.row{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 56px;
+  gap: 12px;
 }
-.info-section .key-times {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-  margin-top: 12px;
-}
-.info-section .kt {
-  background: var(--paper);
-  border: 1px solid var(--paper-edge);
-  border-radius: 14px;
-  padding: 12px;
-}
-.info-section .kt .kt-l {
-  font-family: var(--mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--ink-muted);
-}
-.info-section .kt .kt-v {
-  font-family: var(--mono);
+.row + .row{ margin-top: 8px; }
+.row-label{ font-size: 14px; color: var(--text); font-weight: 500; }
+.row-sub{ font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.row-control{ flex-shrink: 0; }
+.row-input{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: var(--text);
+  font: inherit;
   font-size: 14px;
-  margin-top: 4px;
-  color: var(--ink);
+  font-feature-settings: "tnum";
+  min-height: 36px;
+  text-align: right;
+  width: 140px;
+  -webkit-appearance: none;
 }
-.info-section .pharma-card {
-  margin-top: 12px;
-  padding: 12px 14px;
-  background: var(--blue-tint);
-  border: 1px solid var(--blue-line);
-  border-radius: 14px;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--blue-deep);
-  letter-spacing: 0.3px;
-  line-height: 1.5;
-}
-.info-section .pharma-card strong {
-  display: block;
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0;
-  margin-bottom: 4px;
-}
-.info-section .alert {
-  margin-top: 10px;
-  background: var(--red-soft);
-  border: 1px solid #F4C7C7;
-  border-radius: 14px;
-  padding: 12px 14px;
-  display: flex; gap: 10px;
-}
-.info-section .alert svg {
-  flex: 0 0 18px;
-  width: 18px; height: 18px;
-  stroke: var(--red-deep); fill: none; stroke-width: 1.8;
-  margin-top: 1px;
-}
-.info-section .alert div {
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: var(--red-deep);
-}
-.info-section .alert strong { font-weight: 600; }
+.row-input:focus{ outline: 2px solid var(--gold); outline-offset: 1px; }
 
-/* Patient card top of info */
-.patient-card {
-  background: linear-gradient(180deg, var(--blue-deep), #061634);
-  color: var(--paper);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  margin: 0 0 18px;
-  position: relative;
-  overflow: hidden;
-}
-.patient-card::before {
-  content: '';
-  position: absolute;
-  top: -40px; right: -40px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(185,28,28,.35) 0%, transparent 70%);
-  pointer-events: none;
-}
-.patient-card .row1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.patient-card .row1 .l {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  text-transform: uppercase;
-  letter-spacing: 1.4px;
-  color: rgba(250,246,236,.5);
-}
-.patient-card h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 1;
-  margin: 6px 0 0;
-  letter-spacing: -.5px;
-}
-.patient-card h2 em { font-style: italic; }
-.patient-card .grid {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-}
-.patient-card .gc {
-  padding: 10px 0 0;
-  border-top: 1px solid rgba(250,246,236,.18);
-}
-.patient-card .gc .k {
-  font-family: var(--mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: rgba(250,246,236,.5);
-}
-.patient-card .gc .v {
-  font-family: var(--mono);
-  font-size: 13px;
-  margin-top: 3px;
-  color: var(--paper);
-}
-
-/* ===== Modal ===== */
-.modal-back {
+/* ───────────────── tab bar ───────────────── */
+.tabbar{
   position: fixed;
-  inset: 0;
-  background: rgba(15,27,45,.5);
+  left: 50%;
+  bottom: calc(var(--safe-bot) + 12px);
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 398px;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: rgba(14,19,32,0.78);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--border-2);
+  border-radius: 22px;
+  padding: 6px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.06) inset;
+}
+.tab{
+  height: 52px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px;
+  border-radius: 16px;
+  color: var(--text-3);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all .25s var(--ease);
+  position: relative;
+}
+.tab svg{ opacity: 0.7; transition: opacity .25s var(--ease); }
+.tab.is-active{
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(212,184,136,0.18), rgba(212,184,136,0.05));
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
+}
+.tab.is-active svg{ opacity: 1; color: var(--gold); }
+.tab:active{ transform: scale(.94); }
+
+/* ───────────────── sheet (steps) ───────────────── */
+.sheet-backdrop{
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+.sheet-backdrop.is-open{ opacity: 1; pointer-events: auto; }
+.sheet{
+  position: fixed; left: 50%; bottom: 0;
+  transform: translate(-50%, 100%);
+  width: 100%; max-width: 430px;
+  max-height: 85dvh;
+  background: linear-gradient(180deg, #181E32 0%, #0E1320 100%);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-top: 1px solid var(--border-2);
+  z-index: 110;
+  transition: transform .4s var(--ease-out);
+  display: flex; flex-direction: column;
+  padding-bottom: calc(var(--safe-bot) + 16px);
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.5);
+}
+.sheet.is-open{ transform: translate(-50%, 0%); }
+.sheet-handle{
+  width: 38px; height: 4px;
+  border-radius: 999px;
+  background: var(--border-3);
+  margin: 10px auto 6px;
+  flex-shrink: 0;
+}
+.sheet-header{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px 8px;
+}
+.sheet-title{
+  font-size: 18px; font-weight: 600; color: var(--text);
+  letter-spacing: -0.01em;
+}
+.sheet-close{
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  display: grid; place-items: center;
+  color: var(--text-2);
+}
+.sheet-body{
+  padding: 8px 20px 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* numbered steps */
+.steps{
+  display: flex; flex-direction: column; gap: 12px;
+  counter-reset: step;
+}
+.step{
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  counter-increment: step;
+  position: relative;
+}
+.step-num{
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-line);
+  display: grid; place-items: center;
+  color: var(--gold);
+  font-size: 13px; font-weight: 600;
+  font-feature-settings: "tnum";
+}
+.step-num::before{ content: counter(step); }
+.step-text{
+  font-size: 14px; color: var(--text); line-height: 1.45;
+  padding-top: 4px;
+}
+.step-text small{ display:block; color: var(--text-3); font-size: 12px; margin-top: 2px; }
+
+/* dialog (confirm) */
+.dialog-backdrop{
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.65);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  z-index: 100;
-  display: none;
-  align-items: flex-end;
-  justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s var(--ease);
+  display: grid; place-items: center;
+  padding: 24px;
 }
-.modal-back.show { display: flex; animation: fadeIn var(--d-mid) var(--ease); }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.modal {
-  width: 100%;
-  max-width: 480px;
-  background: var(--paper);
-  border-radius: 24px 24px 0 0;
-  padding: 14px var(--pad) calc(env(safe-area-inset-bottom) + 18px);
-  animation: slideUp var(--d-mid) var(--ease-out);
-  box-shadow: 0 -20px 60px rgba(0,0,0,.25);
-}
-@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-.modal .grip {
-  width: 40px; height: 4px; border-radius: 2px;
-  background: var(--paper-edge);
-  margin: 4px auto 14px;
-}
-.modal h3 {
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 400;
-  margin: 0 0 6px;
-  letter-spacing: -.3px;
-}
-.modal h3 em { font-style: italic; color: var(--blue); }
-.modal p {
-  font-size: 13px;
-  color: var(--ink-soft);
-  margin: 0 0 16px;
-  line-height: 1.5;
-}
-.modal .row { display: flex; gap: 8px; margin-top: 14px; }
-.modal .row .cta { flex: 1; }
-.modal label.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 12px 0;
-}
-.modal label.field span {
-  font-family: var(--mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--ink-muted);
-}
-.modal label.field input {
-  font-family: var(--mono);
-  font-size: 15px;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-edge);
-  border-radius: 12px;
-  padding: 12px 14px;
-  outline: none;
-  color: var(--ink);
-}
-.modal label.field input:focus { border-color: var(--blue); }
-
-/* ===== Toast ===== */
-.toast {
-  position: fixed;
-  left: 50%; bottom: calc(env(safe-area-inset-bottom) + 96px);
-  transform: translateX(-50%);
-  background: var(--blue-deep);
-  color: var(--paper);
-  font-family: var(--sans);
-  font-size: 13px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  z-index: 200;
-  opacity: 0;
-  transition: opacity var(--d-fast), transform var(--d-mid);
-  pointer-events: none;
-  box-shadow: var(--shadow-deep);
-  max-width: 80vw;
+.dialog-backdrop.is-open{ opacity: 1; pointer-events: auto; }
+.dialog{
+  width: 100%; max-width: 340px;
+  background: linear-gradient(180deg, #1A2138 0%, #11162A 100%);
+  border: 1px solid var(--border-2);
+  border-radius: 22px;
+  padding: 22px 22px 16px;
   text-align: center;
+  transform: scale(.92);
+  transition: transform .28s var(--ease-out);
+  box-shadow: var(--shadow-lg);
 }
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+.dialog-backdrop.is-open .dialog{ transform: scale(1); }
+.dialog-icon{
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  margin: 0 auto 14px;
+  background: var(--coral-soft);
+  border: 1px solid var(--coral-line);
+  display: grid; place-items: center;
+  color: var(--coral);
+}
+.dialog-title{
+  font-size: 18px; font-weight: 600; color: var(--text);
+  margin: 0 0 6px; letter-spacing: -0.01em;
+}
+.dialog-text{
+  font-size: 14px; color: var(--text-2); line-height: 1.5;
+  margin: 0 0 18px;
+}
+.dialog-actions{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
 
-/* ===== Misc ===== */
-.divider {
-  height: 1px;
-  background: var(--paper-edge);
-  margin: 18px 0;
+/* ───────────────── toast ───────────────── */
+.toast{
+  position: fixed; left: 50%; top: calc(var(--safe-top) + 14px);
+  transform: translate(-50%, -120%);
+  z-index: 300;
+  padding: 12px 18px;
+  background: rgba(20,28,52,0.92);
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 13px; font-weight: 500;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform .35s var(--ease-out);
+  pointer-events: none;
+  white-space: nowrap;
 }
-.subtle-link {
-  color: var(--blue);
-  font-size: 12px;
-  text-decoration: underline;
-  font-family: var(--mono);
+.toast.is-visible{ transform: translate(-50%, 0); }
+.toast-icon{ color: var(--mint); }
+
+/* ───────────────── tabs (within wekkers page) ───────────────── */
+.segmented{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  padding: 4px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.segmented-btn{
+  height: 36px;
+  border-radius: 9px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-3);
+  transition: all .2s var(--ease);
+}
+.segmented-btn.is-active{
+  background: var(--surface-3);
+  color: var(--text);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 2px 6px rgba(0,0,0,0.25);
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+/* ───────────────── motion ───────────────── */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* small phones */
+@media (max-height: 740px){
+  .hero-day{ font-size: 48px; }
+  .section-title{ font-size: 24px; }
 }
 </style>
 </head>
 <body>
 
-<div class="app" id="app">
+<div class="app">
 
-  <!-- ============ TOP BAR ============ -->
-  <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true">
-        <!-- Tiny app mark inline -->
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <g transform="rotate(-22 32 32)">
-            <rect x="14" y="28" width="36" height="9" rx="2" fill="#FDFAF3"/>
-            <g fill="#B91C1C">
-              <rect x="30" y="29.4" width="4" height="6.2" rx="0.5"/>
-              <rect x="29" y="30.9" width="6" height="3.2" rx="0.5"/>
-            </g>
-          </g>
+  <!-- ───── topbar ───── -->
+  <header class="topbar" role="banner">
+    <div class="brand" aria-label="Kuur App">
+      <div class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="color: var(--gold)">
+          <rect x="4" y="9" width="16" height="6" rx="3"/>
+          <line x1="12" y1="9" x2="12" y2="15"/>
         </svg>
-      </span>
-      <span>
+      </div>
+      <div class="brand-text">
         <span class="brand-name">Kuur</span>
-        <span class="brand-sub">Flucloxacilline · 500 mg</span>
-      </span>
+        <span class="brand-sub">10 dagen · 4 × per dag</span>
+      </div>
     </div>
-    <div class="actions">
-      <button class="icon" id="btn-settings" aria-label="Instellingen">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9 1.65 1.65 0 0 0 4.27 7.18l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
+    <button class="topbar-action" id="btnTopSettings" aria-label="Instellingen">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </button>
   </header>
 
-  <!-- ============ PAGES ============ -->
-  <main class="pages" id="pages">
+  <!-- ═══════════════ PAGE 1 — VANDAAG ═══════════════ -->
+  <main class="page is-active" data-page="today" role="main">
 
-    <!-- ===== PAGE 1: Methode 1 ===== -->
-    <section class="page active" data-page="m1">
-      <div class="page-head">
-        <div class="eyebrow"><span class="dot"></span>Methode 1 · op vaste dagklokken</div>
-        <h1>Goedemorgen, <em>Floris.</em></h1>
-        <div class="lede">Inname op <strong>07:00, 12:00, 18:00, 23:00</strong>. Volgens het schema van de bijsluiter — comfortabel binnen je dag, geen wekker midden in de nacht.</div>
-      </div>
-
-      <div class="stat-strip" id="stats-m1"></div>
-
-      <div class="day-strip-wrap">
-        <div class="day-strip" id="day-strip-m1"></div>
-      </div>
-
-      <div class="schema-meta">
-        <div class="label">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div class="label-text">
-            <div class="l1" id="day-title-m1">Dag 1 · 4 capsules</div>
-            <div class="l2" id="day-date-m1">— · — · —</div>
+    <div class="hero" id="hero">
+      <div class="hero-day-row">
+        <div>
+          <div class="hero-day-label">
+            <span id="heroDate">Vandaag</span>
+          </div>
+          <div style="display:flex; align-items:flex-end; gap:10px;">
+            <span class="hero-day" id="heroDayNum">1</span>
+            <span class="hero-day-of" id="heroDayOf">van 10</span>
           </div>
         </div>
-        <div class="times">07 · 12 · 18 · 23</div>
-      </div>
-
-      <div class="pill-grid" id="pills-m1"></div>
-
-      <div class="cta-row">
-        <button class="cta primary" data-action="ics" data-method="1">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          Voeg toe aan iOS Agenda
-        </button>
-        <button class="cta secondary" data-action="alarm-test">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
-          Test wekker
-        </button>
-      </div>
-
-      <div class="course-progress">
-        <div class="head">
-          <span class="title">Kuur voortgang</span>
-          <span class="pct" id="pct-m1">0<span class="u">%</span></span>
-        </div>
-        <div class="bar"><i id="bar-m1" style="width:0%"></i></div>
-        <div class="meta">
-          <span id="meta-left-m1">— van 40 capsules</span>
-          <span id="meta-end-m1">eindigt —</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 2: Methode 2 ===== -->
-    <section class="page" data-page="m2">
-      <div class="page-head">
-        <div class="eyebrow"><span class="dot"></span>Methode 2 · strikte 6-uurs intervallen</div>
-        <h1>Strikte <em>verdeling.</em></h1>
-        <div class="lede">Inname elke 6 uur op <strong>06:00, 12:00, 18:00, 00:00</strong>. Houdt de bloedspiegel constant — vereist één inname &apos;s nachts. Aanbevolen door apothekers voor maximale werking.</div>
-      </div>
-
-      <div class="stat-strip" id="stats-m2"></div>
-
-      <div class="day-strip-wrap">
-        <div class="day-strip" id="day-strip-m2"></div>
-      </div>
-
-      <div class="schema-meta">
-        <div class="label">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v10l7 4"/></svg>
-          <div class="label-text">
-            <div class="l1" id="day-title-m2">Dag 1 · 4 capsules</div>
-            <div class="l2" id="day-date-m2">— · — · —</div>
-          </div>
-        </div>
-        <div class="times">06 · 12 · 18 · 00</div>
-      </div>
-
-      <div class="pill-grid" id="pills-m2"></div>
-
-      <div class="cta-row">
-        <button class="cta primary" data-action="ics" data-method="2">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          Voeg toe aan iOS Agenda
-        </button>
-        <button class="cta secondary" data-action="alarm-test">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
-          Test wekker
-        </button>
-      </div>
-
-      <div class="course-progress">
-        <div class="head">
-          <span class="title">Kuur voortgang</span>
-          <span class="pct" id="pct-m2">0<span class="u">%</span></span>
-        </div>
-        <div class="bar"><i id="bar-m2" style="width:0%"></i></div>
-        <div class="meta">
-          <span id="meta-left-m2">— van 40 capsules</span>
-          <span id="meta-end-m2">eindigt —</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PAGE 3: Informatie ===== -->
-    <section class="page" data-page="info">
-      <div class="page-head">
-        <div class="eyebrow"><span class="dot"></span>Informatie · uit de bijsluiter</div>
-        <h1>Alles over <em>jouw kuur.</em></h1>
-        <div class="lede">Een korte, persoonlijke samenvatting van de bijsluiter — in jouw eigen taal. Voor de volledige tekst, raadpleeg altijd de officiële bijsluiter.</div>
-      </div>
-
-      <!-- Patient card -->
-      <div class="patient-card">
-        <div class="row1">
-          <div class="l">Patiëntenkaart</div>
-          <div class="l">Recept · EC03005</div>
-        </div>
-        <h2>F. van den <em>Oever</em></h2>
-        <div class="grid">
-          <div class="gc"><div class="k">Geneesmiddel</div><div class="v">Flucloxacilline 500 mg</div></div>
-          <div class="gc"><div class="k">Dosering</div><div class="v">4× per dag · 1 capsule</div></div>
-          <div class="gc"><div class="k">Duur</div><div class="v">10 dagen · 40 capsules</div></div>
-          <div class="gc"><div class="k">Indicatie</div><div class="v">Bacteriële infectie</div></div>
-          <div class="gc"><div class="k">Apotheek</div><div class="v">Centraal Apotheek Haarlem</div></div>
-          <div class="gc"><div class="k">Apotheker</div><div class="v">E. den Haak</div></div>
+        <div class="hero-progress-ring" aria-hidden="true">
+          <svg width="76" height="76" viewBox="0 0 76 76">
+            <circle cx="38" cy="38" r="32" stroke="rgba(255,255,255,0.08)" stroke-width="5" fill="none"/>
+            <circle id="ringFill" cx="38" cy="38" r="32" stroke="url(#ringGrad)" stroke-width="5" fill="none"
+              stroke-linecap="round"
+              stroke-dasharray="201" stroke-dashoffset="201"
+              transform="rotate(-90 38 38)" style="transition: stroke-dashoffset .7s var(--ease-out);"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="76" y2="76">
+                <stop offset="0%" stop-color="#D4B888"/>
+                <stop offset="100%" stop-color="#E8CFA0"/>
+              </linearGradient>
+            </defs>
+            <text id="ringText" x="38" y="42" text-anchor="middle" fill="#F4EFE3" font-size="16" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">0/4</text>
+          </svg>
         </div>
       </div>
 
-      <!-- Section: Hoe innemen -->
-      <div class="info-section">
-        <div class="ix"><span class="num">01</span></div>
-        <h3>Hoe <em>innemen</em></h3>
-        <ul>
-          <li><span class="ico">1</span><span>Slik de capsule <strong>heel door</strong> met een vol glas water. Niet kauwen, openmaken of fijnmaken.</span></li>
-          <li><span class="ico">2</span><span>Tijdens innemen zit of sta je rechtop. <strong>Blijf daarna een half uur rechtop</strong> — niet liggen — zodat de capsule de slokdarm niet beschadigt.</span></li>
-          <li><span class="ico">3</span><span>Verspreid de innames zo gelijk mogelijk over de dag voor een goede werking.</span></li>
-          <li><span class="ico">4</span><span><strong>Maak de kuur helemaal af</strong>, ook als je je beter voelt. Alleen dan werkt het medicijn goed.</span></li>
-        </ul>
-        <div class="key-times">
-          <div class="kt"><div class="kt-l">Per dosis</div><div class="kt-v">500 mg · 1 capsule</div></div>
-          <div class="kt"><div class="kt-l">Werking begint</div><div class="kt-v">Meteen · klachten weg na enkele dagen</div></div>
+      <div class="hero-meta">
+        <div class="hero-stat">
+          <div class="hero-stat-label">Vandaag</div>
+          <div class="hero-stat-value"><span id="todayTaken">0</span><small>/ 4 doses</small></div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Totaal</div>
+          <div class="hero-stat-value"><span id="totalTaken">0</span><small>/ 40 doses</small></div>
         </div>
       </div>
+    </div>
 
-      <!-- Section: Vergeten dosis -->
-      <div class="info-section">
-        <div class="ix"><span class="num">02</span></div>
-        <h3>Bij een <em>vergeten dosis</em></h3>
-        <ul>
-          <li><span class="ico">⏱</span><span><strong>Duurt het langer dan 2 uur</strong> voordat je de volgende moet innemen? Neem hem dan alsnog in.</span></li>
-          <li><span class="ico">⤳</span><span><strong>Minder dan 2 uur?</strong> Sla de vergeten dosis over. De kuur duurt dan iets langer — maak de voorgeschreven hoeveelheid wel helemaal op.</span></li>
-        </ul>
+    <div class="section-eyebrow">Innamemomenten</div>
+    <div class="doses" id="doseList" role="list"></div>
+
+    <div class="note-block" style="margin-top: 4px;">
+      <div class="note-block-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
       </div>
-
-      <!-- Section: Bijwerkingen -->
-      <div class="info-section">
-        <div class="ix"><span class="num">03</span></div>
-        <h3>Mogelijke <em>bijwerkingen</em></h3>
-        <p>Deze bijwerkingen kunnen voorkomen — maar hoeven dat niet. Bij twijfel of ongerustheid: vraag advies aan de apotheker of arts.</p>
-        <ul>
-          <li><span class="ico">·</span><span>Maag-darmklachten zoals misselijkheid, diarree en overgeven.</span></li>
-          <li><span class="ico">·</span><span>Galbulten of huiduitslag (zonder jeuk).</span></li>
-          <li><span class="ico">·</span><span>Zelden: pijnlijk gevoel of schade aan de slokdarm.</span></li>
-        </ul>
-        <div class="alert">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
-          <div><strong>Bel meteen de arts</strong> bij jeuk, huiduitslag, benauwd zijn, zwelling van gezicht/lippen/tong/handen, of een snelle pols. Dit kan een allergische reactie zijn.</div>
-        </div>
+      <div class="note-block-text">
+        <strong>Vandaag starten?</strong> Als er vandaag al twee momenten zijn gemist, neem dan alleen de resterende 2 doses van vandaag. Anders is morgen starten met het volledige 4-momenten schema ook prima.
       </div>
-
-      <!-- Section: Bewaren & kenmerken -->
-      <div class="info-section">
-        <div class="ix"><span class="num">04</span></div>
-        <h3>Bewaren &amp; <em>kenmerken</em></h3>
-        <ul>
-          <li><span class="ico">○</span><span>Bewaar bij <strong>kamertemperatuur</strong>, in de originele verpakking.</span></li>
-          <li><span class="ico">○</span><span>Houdbaarheidsdatum staat op de doos.</span></li>
-          <li><span class="ico">○</span><span>Capsules: <strong>bruin en grijs</strong>, opdruk &lsquo;FXN500&rsquo;.</span></li>
-          <li><span class="ico">○</span><span>Recept van de arts vereist.</span></li>
-        </ul>
-        <div class="pharma-card">
-          <strong>Centraal Apotheek Haarlem</strong>
-          Gedempte Oude Gracht 103–105<br>
-          2011 GN Haarlem · 023 531 91 48<br>
-          apothekers@centraalapotheek.net
-        </div>
-      </div>
-
-      <!-- Section: Disclaimer -->
-      <div class="info-section">
-        <div class="ix"><span class="num">05</span></div>
-        <h3>Over deze <em>app</em></h3>
-        <p>Deze app vervangt <strong>niet</strong> de bijsluiter van de fabrikant of de aanwijzingen van je arts of apotheker. Het is een persoonlijk hulpmiddel om je kuur bij te houden. Bij twijfel: bel altijd je apotheek.</p>
-        <p style="margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--ink-muted);letter-spacing:.4px;">
-          Bron: bijsluiter Stichting Health Base, versie 10 april 2026.<br>
-          App-versie 1.0 · privé voor F. van den Oever.
-        </p>
-        <div class="divider"></div>
-        <div style="display:flex;gap:8px;">
-          <button class="cta secondary" id="btn-reset" style="flex:1;">
-            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-            Reset kuur
-          </button>
-          <button class="cta secondary" id="btn-export-data" style="flex:1;">
-            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Exporteer data
-          </button>
-        </div>
-      </div>
-
-    </section>
+    </div>
 
   </main>
 
-  <!-- ============ TAB BAR ============ -->
-  <nav class="tabbar" role="tablist">
-    <button class="tab active" data-tab="m1" role="tab" aria-selected="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <span class="lbl">Methode 1</span>
+  <!-- ═══════════════ PAGE 2 — WEKKERS ═══════════════ -->
+  <main class="page" data-page="alarms" role="main">
+
+    <div class="section-eyebrow">iOS Wekker Assistent</div>
+    <h1 class="section-title">Vier dagelijkse <em>wekkers</em></h1>
+    <p class="section-lead">Open de standaard <strong style="color:var(--text)">Wekker</strong> app op je iPhone en stel 4 dagelijkse wekkers in. Gebruik de labels hieronder, zodat elke melding meteen duidelijk is.</p>
+
+    <div class="alarms" id="alarmList"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btnCopyLabels">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        Kopieer wekkerlabels
+      </button>
+    </div>
+
+    <button class="btn btn-ghost" id="btnShowSteps">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      Toon stap-voor-stap iOS uitleg
     </button>
-    <button class="tab" data-tab="m2" role="tab" aria-selected="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M12 12 6 9" opacity=".5"/></svg>
-      <span class="lbl">Methode 2</span>
+
+    <div class="card card-tight" style="margin-top:4px;">
+      <div class="row-label" style="margin-bottom: 4px;">Voorbeeldschema (optioneel)</div>
+      <div class="row-sub" style="margin-bottom: 12px;">Vul je gewenste wakker-tijd in voor een richt-tijd per wekker.</div>
+      <div class="row" style="background: rgba(0,0,0,0.2);">
+        <div>
+          <div class="row-label">Wakker worden</div>
+          <div class="row-sub" id="schedHint">Wordt gebruikt als startpunt</div>
+        </div>
+        <input type="time" class="row-input" id="wakeTime" value="" aria-label="Wakker-tijd"/>
+      </div>
+      <div class="btn-row" style="margin-top: 10px;">
+        <button class="btn btn-ghost" id="btnClearSchedule">Wissen</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════ PAGE 3 — GUIDE ═══════════════ -->
+  <main class="page" data-page="guide" role="main">
+
+    <div class="section-eyebrow">Gebruikersgids</div>
+    <h1 class="section-title">Zo werkt deze <em>kuur</em></h1>
+    <p class="section-lead">Een korte, rustige checklist om elke dosis goed in te nemen.</p>
+
+    <div class="rules">
+      <div class="rule">
+        <div class="rule-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="9" width="20" height="6" rx="3"/>
+            <line x1="12" y1="9" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rule-title">4 keer per dag</div>
+          <div class="rule-text">Verdeel de doses gelijkmatig: ongeveer om de 4 uur, gedurende de wakkere uren.</div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon is-mint" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 2h10l-1 8a4 4 0 0 1-4 4 4 4 0 0 1-4-4z"/>
+            <path d="M8 14v8h8v-8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rule-title">Met een glas water</div>
+          <div class="rule-text">Slik elke capsule door met een vol glas water. Niet kauwen, niet openmaken.</div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rule-title">Op een lege maag</div>
+          <div class="rule-text">Neem de capsule 1 uur vóór een maaltijd, of minimaal 2 uur na een maaltijd.</div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rule-title">10 dagen lang</div>
+          <div class="rule-text">De kuur duurt 10 volle dagen. 40 doses in totaal.</div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon is-mint" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rule-title">Kuur volledig afmaken</div>
+          <div class="rule-text">Maak alle 10 dagen af, ook als je je eerder beter voelt.</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════ PAGE 4 — VOORTGANG ═══════════════ -->
+  <main class="page" data-page="progress" role="main">
+
+    <div class="section-eyebrow">Overzicht</div>
+    <h1 class="section-title">Kuur <em>voortgang</em></h1>
+    <p class="section-lead">Tien dagen, in één blik.</p>
+
+    <div class="card">
+      <div class="row-label" style="margin-bottom: 6px;">Totaal voltooid</div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 12px;">
+        <div class="hero-day" style="font-size: 38px;" id="progTotalNum">0</div>
+        <div class="row-sub" style="font-size: 13px;"><span id="progTotalPct">0%</span> · van 40 doses</div>
+      </div>
+      <div class="bar"><div class="bar-fill is-mint" id="progBarFill" style="width:0%"></div></div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top: 4px;">Per dag</div>
+    <div class="tenday" id="tendayGrid"></div>
+
+    <div class="stats-grid" style="margin-top: 4px;">
+      <div class="stat-card">
+        <div class="stat-label">Voltooide dagen</div>
+        <div class="stat-value"><span id="completedDays">0</span><small>/ 10</small></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Resterend</div>
+        <div class="stat-value"><span id="remainingDoses">40</span><small>doses</small></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════ PAGE 5 — INSTELLINGEN ═══════════════ -->
+  <main class="page" data-page="settings" role="main">
+
+    <div class="section-eyebrow">Instellingen</div>
+    <h1 class="section-title">App <em>voorkeuren</em></h1>
+
+    <div class="row">
+      <div>
+        <div class="row-label">Startdatum kuur</div>
+        <div class="row-sub" id="startDateHint">Dag 1 begint op deze datum</div>
+      </div>
+      <input type="date" class="row-input" id="startDate" aria-label="Startdatum"/>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="row-label">Wakker-tijd</div>
+        <div class="row-sub">Voor het voorbeeldschema bij Wekkers</div>
+      </div>
+      <input type="time" class="row-input" id="wakeTime2" aria-label="Wakker-tijd"/>
+    </div>
+
+    <button class="btn btn-danger" id="btnReset" style="margin-top: 12px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 10 9 10"/>
+      </svg>
+      Nieuwe kuur starten
     </button>
-    <button class="tab" data-tab="info" role="tab" aria-selected="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      <span class="lbl">Bijsluiter</span>
+
+    <button class="btn btn-ghost" id="btnClearAll">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 6 5 6 21 6"/>
+        <path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      </svg>
+      Lokale data wissen
+    </button>
+
+    <div style="text-align:center; margin-top: 24px; color: var(--text-dim); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;">
+      Kuur · v2.1 · privé
+    </div>
+
+  </main>
+
+  <!-- ═══════════════ TAB BAR ═══════════════ -->
+  <nav class="tabbar" role="tablist" aria-label="Hoofdnavigatie">
+    <button class="tab is-active" data-tab="today" role="tab" aria-selected="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+        <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+      </svg>
+      Vandaag
+    </button>
+    <button class="tab" data-tab="alarms" role="tab" aria-selected="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+      </svg>
+      Wekkers
+    </button>
+    <button class="tab" data-tab="guide" role="tab" aria-selected="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+      Guide
+    </button>
+    <button class="tab" data-tab="progress" role="tab" aria-selected="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 12A10 10 0 1 1 12 2"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      Voortgang
+    </button>
+    <button class="tab" data-tab="settings" role="tab" aria-selected="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+      Meer
     </button>
   </nav>
 
 </div><!-- /.app -->
 
-<!-- Settings modal -->
-<div class="modal-back" id="modal-settings">
-  <div class="modal" role="dialog" aria-labelledby="set-title">
-    <div class="grip"></div>
-    <h3 id="set-title">Instellingen</h3>
-    <p>Pas de startdatum aan en kies welke methode je volgt.</p>
 
-    <label class="field">
-      <span>Startdatum kuur (dag 1)</span>
-      <input type="date" id="set-startdate" />
-    </label>
-
-    <label class="field">
-      <span>Patiëntnaam</span>
-      <input type="text" id="set-name" />
-    </label>
-
-    <div class="row">
-      <button class="cta secondary" id="set-cancel">Annuleren</button>
-      <button class="cta primary" id="set-save">Opslaan</button>
+<!-- ═══════════════ SHEET — iOS steps ═══════════════ -->
+<div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+<div class="sheet" id="stepsSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="sheet-handle" aria-hidden="true"></div>
+  <div class="sheet-header">
+    <div class="sheet-title" id="sheetTitle">iOS Wekker — stap voor stap</div>
+    <button class="sheet-close" id="sheetClose" aria-label="Sluiten">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="sheet-body">
+    <p style="font-size: 14px; color: var(--text-2); margin: 0 0 14px;">Volg deze stappen voor elk van de 4 wekkers.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num"></div><div class="step-text">Open de standaard <strong>Wekker</strong> app op je iPhone.</div></div>
+      <div class="step"><div class="step-num"></div><div class="step-text">Tik rechtsboven op het <strong>plus</strong>-icoon.</div></div>
+      <div class="step"><div class="step-num"></div><div class="step-text">Kies een <strong>tijd</strong> voor deze inname.</div></div>
+      <div class="step"><div class="step-num"></div><div class="step-text">Zet <strong>Herhaal</strong> op <strong>Elke dag</strong>.</div></div>
+      <div class="step"><div class="step-num"></div><div class="step-text">Vul het <strong>label</strong> in. <small>Bijvoorbeeld: "Kuur 1/4, innemen met water"</small></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-text">Tik op <strong>Bewaar</strong>.</div></div>
+      <div class="step"><div class="step-num"></div><div class="step-text">Herhaal voor de overige 3 momenten.</div></div>
     </div>
   </div>
 </div>
 
-<!-- Toast -->
-<div class="toast" id="toast"></div>
+<!-- ═══════════════ DIALOG — confirm reset ═══════════════ -->
+<div class="dialog-backdrop" id="dialogBackdrop" hidden>
+  <div class="dialog" role="alertdialog" aria-labelledby="dialogTitle" aria-describedby="dialogText">
+    <div class="dialog-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 10 9 10"/>
+      </svg>
+    </div>
+    <h2 class="dialog-title" id="dialogTitle">Nieuwe kuur starten?</h2>
+    <p class="dialog-text" id="dialogText">Dit wist je lokale voortgang en start opnieuw bij Dag 1.</p>
+    <div class="dialog-actions">
+      <button class="btn btn-ghost" id="dlgCancel">Annuleren</button>
+      <button class="btn btn-danger" id="dlgConfirm">Opnieuw starten</button>
+    </div>
+  </div>
+</div>
 
-<!-- Hidden capsule template (rendered into pill cells) -->
-<template id="capsule-tmpl">
-  <svg class="capsule" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" aria-label="Flucloxacilline 500mg capsule">
-    <defs>
-      <linearGradient id="pillBrown" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#8B5A2B"/>
-        <stop offset="0.5" stop-color="#6B4423"/>
-        <stop offset="1" stop-color="#3E2410"/>
-      </linearGradient>
-      <linearGradient id="pillCream" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#ECE5D6"/>
-        <stop offset="0.5" stop-color="#C9C2B5"/>
-        <stop offset="1" stop-color="#8E8778"/>
-      </linearGradient>
-      <radialGradient id="pillShineL" cx="0.3" cy="0.2" r="0.7">
-        <stop offset="0" stop-color="#fff" stop-opacity=".4"/>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="pillShineR" cx="0.3" cy="0.2" r="0.7">
-        <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <!-- Brown half (left) -->
-    <path d="M 25 4 L 60 4 L 60 46 L 25 46 A 21 21 0 0 1 25 4 Z" fill="url(#pillBrown)"/>
-    <ellipse cx="42" cy="14" rx="18" ry="3" fill="url(#pillShineL)"/>
-    <!-- Cream half (right) -->
-    <path d="M 60 4 L 95 4 A 21 21 0 0 1 95 46 L 60 46 Z" fill="url(#pillCream)"/>
-    <ellipse cx="78" cy="14" rx="18" ry="3" fill="url(#pillShineR)"/>
-    <!-- Cap separation -->
-    <line x1="60" y1="4" x2="60" y2="46" stroke="#0E2244" stroke-width="0.4" opacity="0.25"/>
-    <!-- Subtle cap rim (left) -->
-    <line x1="58" y1="4" x2="58" y2="46" stroke="#3E2410" stroke-width="0.6" opacity="0.5"/>
-    <!-- FXN500 imprint -->
-    <text x="78" y="29" font-family="ui-monospace, 'Geist Mono', monospace" font-size="6" fill="#3D3729" font-weight="700" text-anchor="middle" letter-spacing="0.3">FXN500</text>
-  </svg>
-</template>
+<!-- ═══════════════ TOAST ═══════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="toast-icon" aria-hidden="true">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </span>
+  <span id="toastText">Opgeslagen</span>
+</div>
 
-<!-- ============ APP LOGIC ============ -->
+
 <script>
-"use strict";
+/* ───────────────────────────────────────────────────────────
+   Kuur · v2.1 · app logic
+   ─────────────────────────────────────────────────────────── */
+'use strict';
 
-/* ====================================================================
- * KUUR — application logic
- * ==================================================================== */
+const KEY = 'kuur-v2-state';
 
-const KUUR = {
-  /* Schedules from the bijsluiter & standard NL pharmacy guidance */
-  schedules: {
-    m1: { name: 'Methode 1 · vaste dagklokken', times: ['07:00','12:00','18:00','23:00'] },
-    m2: { name: 'Methode 2 · strikte 6-uurs intervallen', times: ['06:00','12:00','18:00','00:00'] },
-  },
-  totalDays: 10,
-  patientName: 'Floris van den Oever',
+const ALARM_DEFS = [
+  { idx:0, title:'Wekker 1', label:'Kuur 1/4, innemen met water',  timing:'Na wakker worden, of 1 uur vóór ontbijt.' },
+  { idx:1, title:'Wekker 2', label:'Kuur 2/4, lege maag',          timing:'Ongeveer 4 uur na Wekker 1.' },
+  { idx:2, title:'Wekker 3', label:'Kuur 3/4, 1 uur vóór eten',     timing:'Ongeveer 4 uur na Wekker 2.' },
+  { idx:3, title:'Wekker 4', label:'Kuur 4/4, voor slapen',         timing:'Ongeveer 4 uur na Wekker 3, of vlak voor slapen.' }
+];
+
+const DAYS_TOTAL = 10;
+const DOSES_PER_DAY = 4;
+
+/* ---------- state ---------- */
+const today = () => {
+  const d = new Date(); d.setHours(0,0,0,0); return d;
+};
+const isoDay = (d) => {
+  const y = d.getFullYear(); const m = String(d.getMonth()+1).padStart(2,'0'); const day = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+};
+const parseISO = (s) => {
+  if (!s) return today();
+  const [y,m,d] = s.split('-').map(Number);
+  const dt = new Date(y, (m||1)-1, d||1); dt.setHours(0,0,0,0); return dt;
 };
 
-/* ----- State (persisted) ----- */
-const STORAGE_KEY = 'kuur-state-v1';
-
-const defaultState = () => ({
-  startDate: '2026-05-06',     // from prescription label
-  patientName: KUUR.patientName,
-  taken: {},                   // key: "m1-D-T" or "m2-D-T" => true
-  alarms: { m1: [true,true,true,true], m2: [true,true,true,true] },
-  activeTab: 'm1',
-  activeDayM1: 1,
-  activeDayM2: 1,
-});
-
-let state = loadState();
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+let storageOK = true;
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
     if (!raw) return defaultState();
-    return Object.assign(defaultState(), JSON.parse(raw));
-  } catch (e) {
-    return defaultState();
+    const s = JSON.parse(raw);
+    return migrate(s);
+  } catch(e){ storageOK = false; return defaultState(); }
+}
+function save(){
+  if (!storageOK) return;
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch(e){ storageOK = false; }
+}
+function defaultState(){
+  return {
+    startDate: isoDay(today()),
+    doses: {},          // { 'YYYY-MM-DD': { '0': {taken:true, time:'14:03'}, '1': {missed:true} } }
+    wakeTime: '',       // HH:MM
+    activeTab: 'today',
+    version: 2.1
+  };
+}
+function migrate(s){
+  const base = defaultState();
+  return Object.assign(base, s, { version: 2.1 });
+}
+
+let state = load();
+
+/* ---------- date / day math ---------- */
+function dayNumber(){
+  const start = parseISO(state.startDate);
+  const now = today();
+  const diff = Math.round((now - start) / 86400000);
+  return Math.max(1, Math.min(DAYS_TOTAL, diff + 1));
+}
+function dateForDay(n){
+  const start = parseISO(state.startDate);
+  const d = new Date(start); d.setDate(d.getDate() + (n-1)); return d;
+}
+function dayKey(n){ return isoDay(dateForDay(n)); }
+function getDose(dayN, idx){
+  const k = dayKey(dayN);
+  if (!state.doses[k]) state.doses[k] = {};
+  if (!state.doses[k][idx]) state.doses[k][idx] = { taken:false, missed:false, time:null };
+  return state.doses[k][idx];
+}
+function dayDoses(dayN){
+  const k = dayKey(dayN); const out = [];
+  for (let i=0; i<DOSES_PER_DAY; i++){
+    out.push((state.doses[k] && state.doses[k][i]) || { taken:false, missed:false, time:null });
   }
+  return out;
 }
-function saveState() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-  catch (e) { /* private mode? */ }
+function totalTaken(){
+  let t=0;
+  for (let n=1; n<=DAYS_TOTAL; n++){
+    dayDoses(n).forEach(d => { if (d.taken) t++; });
+  }
+  return t;
+}
+function dayTakenCount(n){ return dayDoses(n).filter(d=>d.taken).length; }
+
+/* ---------- formatting ---------- */
+const NL_DAYS   = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+const NL_MONTHS = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+function fmtDate(d){
+  return `${NL_DAYS[d.getDay()]} ${d.getDate()} ${NL_MONTHS[d.getMonth()]}`;
+}
+function fmtTimeNow(){
+  const d = new Date();
+  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+function addHoursToTime(t, h){
+  if (!t) return '';
+  const [hh,mm] = t.split(':').map(Number);
+  const total = (hh + h) * 60 + mm;
+  const wrap = ((total % (24*60)) + (24*60)) % (24*60);
+  return `${String(Math.floor(wrap/60)).padStart(2,'0')}:${String(wrap%60).padStart(2,'0')}`;
+}
+function alarmExampleTime(idx){
+  if (!state.wakeTime) return null;
+  // wekker 1 = +1h before breakfast = wakeTime; wekker 2 = +4h; 3 = +8h; 4 = +12h
+  return addHoursToTime(state.wakeTime, idx * 4);
 }
 
-/* ----- Date helpers ----- */
-const NL_MONTHS = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
-const NL_DAYS = ['Zon','Maa','Din','Woe','Don','Vri','Zat'];
-const NL_DAYS_FULL = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-const NL_MONTHS_FULL = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+/* ───────── render — HERO + DOSES ───────── */
+function renderToday(){
+  const dN = dayNumber();
+  const d = dateForDay(dN);
 
-function dateForDay(dayNum) {
-  const d = new Date(state.startDate + 'T00:00:00');
-  d.setDate(d.getDate() + (dayNum - 1));
-  return d;
-}
-function fmtShortDate(d)  { return `${NL_DAYS[d.getDay()]} · ${d.getDate()} ${NL_MONTHS[d.getMonth()]}`; }
-function fmtLongDate(d)   { return `${NL_DAYS_FULL[d.getDay()]} ${d.getDate()} ${NL_MONTHS_FULL[d.getMonth()]} ${d.getFullYear()}`; }
-function todayDayNum() {
-  const start = new Date(state.startDate + 'T00:00:00');
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  const diff = Math.round((today - start) / (1000*60*60*24)) + 1;
-  return Math.min(Math.max(diff, 1), KUUR.totalDays);
-}
+  $('#heroDayNum').textContent = dN;
+  $('#heroDayOf').textContent  = `van ${DAYS_TOTAL}`;
+  $('#heroDate').textContent   = fmtDate(d);
 
-/* ----- Take/untake ----- */
-function takenKey(method, day, idx) { return `${method}-${day}-${idx}`; }
-function isTaken(method, day, idx)  { return !!state.taken[takenKey(method, day, idx)]; }
-function toggleTaken(method, day, idx) {
-  const k = takenKey(method, day, idx);
-  if (state.taken[k]) delete state.taken[k];
-  else state.taken[k] = Date.now();
-  saveState();
-  haptic();
-  if (state.taken[k]) chime();
-}
-function takenCount(method) {
-  return Object.keys(state.taken).filter(k => k.startsWith(method + '-')).length;
-}
+  const taken = dayTakenCount(dN);
+  $('#todayTaken').textContent = taken;
+  $('#totalTaken').textContent = totalTaken();
 
-/* ----- Build pill cell ----- */
-function buildPillCell(method, dayNum, idx, time) {
-  const cell = document.createElement('div');
-  cell.className = 'pill-cell';
-  cell.dataset.method = method;
-  cell.dataset.day = dayNum;
-  cell.dataset.idx = idx;
-  if (isTaken(method, dayNum, idx)) cell.classList.add('taken');
+  // ring
+  const ring = $('#ringFill');
+  const C = 2 * Math.PI * 32;
+  const off = C - (taken / DOSES_PER_DAY) * C;
+  ring.setAttribute('stroke-dasharray', String(C));
+  ring.setAttribute('stroke-dashoffset', String(off));
+  $('#ringText').textContent = `${taken}/${DOSES_PER_DAY}`;
 
-  // Past / next markers (for today only)
-  const today = todayDayNum();
-  if (dayNum === today) {
-    const now = new Date();
-    const [h, m] = time.split(':').map(Number);
-    const slotTime = h * 60 + m;
-    const nowMin = now.getHours() * 60 + now.getMinutes();
-    if (!isTaken(method, dayNum, idx)) {
-      // mark missed if past 90 minutes after slot
-      if (nowMin > slotTime + 90) cell.classList.add('missed');
+  // doses
+  const list = $('#doseList');
+  list.innerHTML = '';
+  const doses = dayDoses(dN);
+  // identify "next" (first not-taken)
+  const nextIdx = doses.findIndex(d => !d.taken);
+
+  ALARM_DEFS.forEach((def, i) => {
+    const dose = doses[i];
+    const isTaken = !!dose.taken;
+    const isMissed = !!dose.missed && !isTaken;
+    const isNext = (i === nextIdx) && !isTaken;
+
+    const el = document.createElement('div');
+    el.className = 'dose';
+    if (isTaken) el.classList.add('is-taken');
+    else if (isMissed) el.classList.add('is-missed');
+    if (isNext && !isMissed) el.classList.add('is-next');
+    el.setAttribute('role','listitem');
+
+    const timeStr = isTaken && dose.time ? `Ingenomen om ${dose.time}` :
+                    isMissed ? 'Gemist' :
+                    isNext ? 'Volgende dosis' : 'Nog innemen';
+
+    // Subtle secondary link: only on the most-relevant row.
+    //  - taken  → "Ongedaan maken"
+    //  - missed → "Toch nog innemen"
+    //  - next   → "Markeer gemist"
+    //  - others → no link (less visual noise)
+    let secondary = '';
+    if (isTaken){
+      secondary = `<button class="dose-link" data-action="undo" data-idx="${i}" aria-label="Inname ongedaan maken">Ongedaan maken</button>`;
+    } else if (isMissed){
+      secondary = `<button class="dose-link is-active" data-action="miss" data-idx="${i}" aria-label="Toch nog innemen">Toch nog innemen</button>`;
+    } else if (isNext){
+      secondary = `<button class="dose-link" data-action="miss" data-idx="${i}" aria-label="Markeer als gemist">Markeer gemist</button>`;
     }
-  }
 
-  const tmpl = document.getElementById('capsule-tmpl');
-  const capsuleSvg = tmpl.content.firstElementChild.cloneNode(true);
-
-  cell.innerHTML = `
-    <span class="pc-time">${time}</span>
-    <button class="pc-bell ${state.alarms[method][idx] ? 'on' : ''}" aria-label="Wekker">
-      <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.7 21a2 2 0 0 1-3.4 0" stroke-linecap="round"/></svg>
-    </button>
-    <div class="pc-pill"></div>
-    <div class="pc-foot">
-      <span class="pc-dose">500 mg</span>
-      <span class="pc-check">
-        <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
-      </span>
-    </div>
-  `;
-  cell.querySelector('.pc-pill').appendChild(capsuleSvg);
-
-  // Tap to toggle
-  cell.addEventListener('click', (e) => {
-    if (e.target.closest('.pc-bell')) return;
-    toggleTaken(method, dayNum, idx);
-    cell.classList.toggle('taken', isTaken(method, dayNum, idx));
-    refreshStats(method);
-    refreshDayStrip(method);
-  });
-
-  // Bell toggle
-  cell.querySelector('.pc-bell').addEventListener('click', (e) => {
-    e.stopPropagation();
-    state.alarms[method][idx] = !state.alarms[method][idx];
-    saveState();
-    e.currentTarget.classList.toggle('on', state.alarms[method][idx]);
-    toast(state.alarms[method][idx] ? `Wekker aan voor ${time}` : `Wekker uit voor ${time}`);
-    haptic();
-  });
-
-  return cell;
-}
-
-/* ----- Render pill grid for a day ----- */
-function renderPills(method) {
-  const grid  = document.getElementById('pills-' + method);
-  const dayNum = method === 'm1' ? state.activeDayM1 : state.activeDayM2;
-  const sched = KUUR.schedules[method].times;
-  grid.innerHTML = '';
-  sched.forEach((time, i) => {
-    grid.appendChild(buildPillCell(method, dayNum, i, time));
-  });
-
-  // Update day title/date
-  const d = dateForDay(dayNum);
-  document.getElementById('day-title-' + method).textContent = `Dag ${dayNum} · 4 capsules`;
-  document.getElementById('day-date-' + method).textContent  = fmtLongDate(d);
-}
-
-/* ----- Render day strip ----- */
-function refreshDayStrip(method) {
-  const strip = document.getElementById('day-strip-' + method);
-  const activeDay = method === 'm1' ? state.activeDayM1 : state.activeDayM2;
-  const today = todayDayNum();
-  strip.innerHTML = '';
-  for (let i = 1; i <= KUUR.totalDays; i++) {
-    const d = dateForDay(i);
-    const taken = [0,1,2,3].filter(idx => isTaken(method, i, idx)).length;
-    const cell = document.createElement('button');
-    cell.className = 'day-cell';
-    if (i === activeDay) cell.classList.add('active');
-    if (i === today)     cell.classList.add('today');
-    if (taken === 4)     cell.classList.add('complete');
-    cell.innerHTML = `
-      <span class="d-num">${i}</span>
-      <span class="d-lbl">${NL_DAYS[d.getDay()]}</span>
+    el.innerHTML = `
+      <div class="dose-num" aria-hidden="true">
+        <span class="dose-num-text">${i+1}<small>/4</small></span>
+        <span class="dose-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </span>
+      </div>
+      <div class="dose-body">
+        <h3 class="dose-title">${def.label}</h3>
+        <div class="dose-meta">
+          <span>Inname ${i+1}</span>
+          <span class="dot"></span>
+          <span>${timeStr}</span>
+        </div>
+        ${ secondary ? `<div class="dose-secondary">${secondary}</div>` : '' }
+      </div>
+      <button class="dose-action" data-action="toggle" data-idx="${i}" aria-label="${isTaken?'Markeer als nog niet ingenomen':'Markeer als ingenomen'}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          ${ isTaken
+            ? '<polyline points="20 6 9 17 4 12"/>'
+            : '<circle cx="12" cy="12" r="9"/>' }
+        </svg>
+      </button>
     `;
-    cell.addEventListener('click', () => {
-      if (method === 'm1') state.activeDayM1 = i;
-      else state.activeDayM2 = i;
-      saveState();
-      renderPills(method);
-      refreshDayStrip(method);
-      haptic();
-    });
-    strip.appendChild(cell);
-  }
-  // Scroll active into view
-  const activeEl = strip.children[activeDay - 1];
-  if (activeEl) activeEl.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    list.appendChild(el);
+  });
+
+  // bind
+  list.querySelectorAll('[data-action]').forEach(btn => {
+    btn.addEventListener('click', onDoseAction);
+  });
 }
 
-/* ----- Stats ----- */
-function refreshStats(method) {
-  const totalDoses = KUUR.totalDays * 4;
-  const taken = takenCount(method);
-  const today = todayDayNum();
-  const dayNum = method === 'm1' ? state.activeDayM1 : state.activeDayM2;
+function onDoseAction(e){
+  const btn = e.currentTarget;
+  const action = btn.dataset.action;
+  const idx = +btn.dataset.idx;
+  const dN = dayNumber();
+  const dose = getDose(dN, idx);
 
-  // Next dose
-  const sched = KUUR.schedules[method].times;
-  const now = new Date();
-  let nextLabel = '—';
-  let nextDelta = '—';
-  if (today >= 1 && today <= KUUR.totalDays) {
-    let nextSlotMin = null;
-    for (let i = 0; i < sched.length; i++) {
-      if (isTaken(method, today, i)) continue;
-      const [h, m] = sched[i].split(':').map(Number);
-      const slot = (h === 0 ? 24 : h) * 60 + m; // treat 00:00 as 24:00 for ordering when previous is 18
-      const nowMin = now.getHours() * 60 + now.getMinutes();
-      if (slot >= nowMin) { nextSlotMin = { i, slot, h, m }; break; }
-    }
-    if (nextSlotMin) {
-      nextLabel = sched[nextSlotMin.i];
-      const nowMin = now.getHours() * 60 + now.getMinutes();
-      let mins = nextSlotMin.slot - nowMin;
-      if (mins < 0) mins += 24*60;
-      const hr = Math.floor(mins / 60);
-      const mn = mins % 60;
-      nextDelta = (hr > 0 ? hr + 'u ' : '') + mn + 'm';
+  if (action === 'toggle'){
+    if (dose.taken){
+      dose.taken = false; dose.time = null;
     } else {
-      nextLabel = 'morgen ' + sched[0];
-      nextDelta = '—';
+      dose.taken = true; dose.missed = false; dose.time = fmtTimeNow();
+      haptic();
+      toast('Ingenomen om ' + dose.time);
     }
+  } else if (action === 'miss'){
+    dose.missed = !dose.missed;
+    if (dose.missed){ dose.taken = false; dose.time = null; }
+  } else if (action === 'undo'){
+    dose.taken = false; dose.time = null; dose.missed = false;
   }
-
-  document.getElementById('stats-' + method).innerHTML = `
-    <div class="stat-cell">
-      <span class="k">Vandaag</span>
-      <span class="v">${today}<span class="unit">/${KUUR.totalDays}</span></span>
-    </div>
-    <div class="stat-cell">
-      <span class="k">Volgende</span>
-      <span class="v" style="font-size:22px">${nextLabel}<span class="unit"> ${nextDelta}</span></span>
-    </div>
-    <div class="stat-cell">
-      <span class="k">Genomen</span>
-      <span class="v">${taken}<span class="unit">/${totalDoses}</span></span>
-    </div>
-  `;
-
-  // Course bar
-  const pct = Math.round((taken / totalDoses) * 100);
-  document.getElementById('pct-' + method).innerHTML = pct + '<span class="u">%</span>';
-  document.getElementById('bar-' + method).style.width = pct + '%';
-  document.getElementById('meta-left-' + method).textContent = `${totalDoses - taken} van ${totalDoses} capsules nog`;
-  const endDate = dateForDay(KUUR.totalDays);
-  document.getElementById('meta-end-' + method).textContent = `eindigt ${fmtShortDate(endDate)}`;
+  save();
+  renderToday();
+  renderProgress();
 }
 
-/* ----- Tab navigation ----- */
-function switchTab(name) {
-  state.activeTab = name;
-  saveState();
-  document.querySelectorAll('.tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.tab === name);
-    t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false');
+/* ───────── render — ALARMS ───────── */
+function renderAlarms(){
+  const list = $('#alarmList');
+  list.innerHTML = '';
+  ALARM_DEFS.forEach((def, i) => {
+    const ex = alarmExampleTime(i);
+    const el = document.createElement('div');
+    el.className = 'alarm';
+    el.innerHTML = `
+      <div class="alarm-num">${i+1}/4</div>
+      <div class="alarm-body">
+        <h3 class="alarm-label">${def.label}</h3>
+        <div class="alarm-timing">${def.timing}</div>
+      </div>
+      ${ ex ? `
+      <div class="alarm-time-pill">
+        <span class="label">Voorbeeld</span>
+        <span class="time">${ex}</span>
+      </div>` : '' }
+    `;
+    list.appendChild(el);
   });
-  document.querySelectorAll('.page').forEach(p => {
-    p.classList.toggle('active', p.dataset.page === name);
+
+  // sync wake time fields
+  $('#wakeTime').value = state.wakeTime || '';
+  $('#wakeTime2').value = state.wakeTime || '';
+  $('#schedHint').textContent = state.wakeTime ? `Voorbeeldtijden: ${ALARM_DEFS.map((_,i)=>alarmExampleTime(i)).join(' · ')}` : 'Wordt gebruikt als startpunt';
+}
+
+/* ───────── render — PROGRESS ───────── */
+function renderProgress(){
+  const total = totalTaken();
+  $('#progTotalNum').textContent = total;
+  const pct = Math.round((total / (DAYS_TOTAL*DOSES_PER_DAY))*100);
+  $('#progTotalPct').textContent = `${pct}%`;
+  $('#progBarFill').style.width = `${pct}%`;
+  $('#remainingDoses').textContent = (DAYS_TOTAL*DOSES_PER_DAY) - total;
+
+  const grid = $('#tendayGrid');
+  grid.innerHTML = '';
+  let completed = 0;
+  const today_n = dayNumber();
+  for (let n=1; n<=DAYS_TOTAL; n++){
+    const c = dayTakenCount(n);
+    const isComplete = c === DOSES_PER_DAY;
+    if (isComplete) completed++;
+    const isFuture = n > today_n;
+    const isToday = n === today_n;
+    const cell = document.createElement('div');
+    cell.className = 'tenday-cell';
+    if (isComplete) cell.classList.add('is-complete');
+    if (isToday)    cell.classList.add('is-today');
+    if (isFuture && !isComplete) cell.classList.add('is-future');
+    cell.innerHTML = `
+      <div class="tenday-day">D${n}</div>
+      <div class="tenday-fraction">${c}/${DOSES_PER_DAY}</div>
+    `;
+    grid.appendChild(cell);
+  }
+  $('#completedDays').textContent = completed;
+}
+
+/* ───────── render — SETTINGS ───────── */
+function renderSettings(){
+  $('#startDate').value = state.startDate || isoDay(today());
+  $('#wakeTime2').value = state.wakeTime || '';
+  $('#startDateHint').textContent = `Dag 1 begint op ${fmtDate(parseISO(state.startDate))}`;
+}
+
+/* ───────── tabs ───────── */
+function setTab(name){
+  state.activeTab = name; save();
+  $$('.tab').forEach(t => {
+    const on = t.dataset.tab === name;
+    t.classList.toggle('is-active', on);
+    t.setAttribute('aria-selected', on ? 'true' : 'false');
   });
-  document.getElementById('pages').scrollTop = 0;
-  if (name === 'm1' || name === 'm2') {
-    renderPills(name);
-    refreshDayStrip(name);
-    refreshStats(name);
-  }
+  $$('.page').forEach(p => p.classList.toggle('is-active', p.dataset.page === name));
+
+  if (name === 'today')    renderToday();
+  if (name === 'alarms')   renderAlarms();
+  if (name === 'progress') renderProgress();
+  if (name === 'settings') renderSettings();
+
+  window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
 }
 
-/* ----- ICS export (native iOS Calendar with VALARM) ----- */
-function pad(n){ return n.toString().padStart(2,'0'); }
-function icsDate(d) {
-  return d.getUTCFullYear()
-       + pad(d.getUTCMonth()+1)
-       + pad(d.getUTCDate())
-       + 'T'
-       + pad(d.getUTCHours())
-       + pad(d.getUTCMinutes())
-       + pad(d.getUTCSeconds()) + 'Z';
+/* ───────── sheet ───────── */
+function openSheet(){
+  $('#sheetBackdrop').hidden = false;
+  $('#stepsSheet').hidden = false;
+  requestAnimationFrame(() => {
+    $('#sheetBackdrop').classList.add('is-open');
+    $('#stepsSheet').classList.add('is-open');
+  });
 }
-function buildICS(method) {
-  const sched = KUUR.schedules[method].times;
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Kuur//Floris//NL',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-    'X-WR-CALNAME:Kuur · Flucloxacilline',
-    'X-WR-TIMEZONE:Europe/Amsterdam',
-  ];
-  for (let day = 1; day <= KUUR.totalDays; day++) {
-    sched.forEach((time, i) => {
-      if (!state.alarms[method][i]) return; // only export enabled alarms
-      const d = dateForDay(day);
-      const [h, m] = time.split(':').map(Number);
-      d.setHours(h, m, 0, 0);
-      const end = new Date(d.getTime() + 5*60*1000);
-      lines.push(
-        'BEGIN:VEVENT',
-        'UID:kuur-' + method + '-d' + day + '-i' + i + '@floris.private',
-        'DTSTAMP:' + icsDate(new Date()),
-        'DTSTART:' + icsDate(d),
-        'DTEND:' + icsDate(end),
-        'SUMMARY:Flucloxacilline 500 mg · ' + (i+1) + '/4',
-        'DESCRIPTION:Inname ' + (i+1) + ' van 4 — capsule met 1 vol glas water. Heel doorslikken\\, niet kauwen. Een half uur niet liggen.',
-        'LOCATION:Thuis',
-        'CATEGORIES:Medicatie,Antibiotica',
-        'BEGIN:VALARM',
-        'TRIGGER:PT0M',
-        'ACTION:DISPLAY',
-        'DESCRIPTION:Tijd voor je flucloxacilline (dag ' + day + '/' + KUUR.totalDays + ')',
-        'END:VALARM',
-        'BEGIN:VALARM',
-        'TRIGGER:-PT5M',
-        'ACTION:DISPLAY',
-        'DESCRIPTION:Over 5 minuten: flucloxacilline',
-        'END:VALARM',
-        'END:VEVENT'
-      );
-    });
-  }
-  lines.push('END:VCALENDAR');
-  return lines.join('\r\n');
-}
-function downloadICS(method) {
-  const ics = buildICS(method);
-  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `kuur-flucloxacilline-${method}.ics`;
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
-  toast('Agenda geopend — kies "Toevoegen aan agenda"');
+function closeSheet(){
+  $('#sheetBackdrop').classList.remove('is-open');
+  $('#stepsSheet').classList.remove('is-open');
+  setTimeout(() => {
+    $('#sheetBackdrop').hidden = true;
+    $('#stepsSheet').hidden = true;
+  }, 380);
 }
 
-/* ----- Audio: gentle but loud chime ----- */
-let _audioCtx = null;
-function audioCtx() {
-  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  return _audioCtx;
+/* ───────── dialog ───────── */
+function openDialog(){
+  $('#dialogBackdrop').hidden = false;
+  requestAnimationFrame(() => $('#dialogBackdrop').classList.add('is-open'));
 }
-function chime() {
-  try {
-    const ctx = audioCtx();
-    if (ctx.state === 'suspended') ctx.resume();
-    const t0 = ctx.currentTime;
-    // Three soft bell tones (A4, C5, E5) with subtle decay
-    [440, 523.25, 659.25].forEach((freq, i) => {
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
-      o.type = 'sine';
-      o.frequency.value = freq;
-      const startT = t0 + i * 0.12;
-      g.gain.setValueAtTime(0, startT);
-      g.gain.linearRampToValueAtTime(0.18, startT + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, startT + 1.2);
-      o.connect(g).connect(ctx.destination);
-      o.start(startT);
-      o.stop(startT + 1.3);
-    });
-  } catch(e) { /* silent */ }
+function closeDialog(){
+  $('#dialogBackdrop').classList.remove('is-open');
+  setTimeout(() => $('#dialogBackdrop').hidden = true, 280);
 }
-function alarmTone() {
-  try {
-    const ctx = audioCtx();
-    if (ctx.state === 'suspended') ctx.resume();
-    const t0 = ctx.currentTime;
-    // Calm-but-loud: gentle ascending chime triplet, repeated 3x for ~5s
-    const seq = [523.25, 659.25, 783.99]; // C5, E5, G5
-    for (let r = 0; r < 3; r++) {
-      seq.forEach((f, i) => {
-        const o = ctx.createOscillator();
-        const g = ctx.createGain();
-        o.type = 'triangle';
-        o.frequency.value = f;
-        const startT = t0 + r*1.6 + i*0.18;
-        g.gain.setValueAtTime(0, startT);
-        g.gain.linearRampToValueAtTime(0.32, startT + 0.03);
-        g.gain.exponentialRampToValueAtTime(0.0001, startT + 1.0);
-        o.connect(g).connect(ctx.destination);
-        o.start(startT);
-        o.stop(startT + 1.05);
-      });
+
+/* ───────── toast ───────── */
+let toastTimer;
+function toast(msg){
+  $('#toastText').textContent = msg;
+  $('#toast').classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $('#toast').classList.remove('is-visible'), 2000);
+}
+
+/* ───────── haptic-like visual ─────────
+   Real haptics aren't available reliably on iOS web. The dose
+   card animates via CSS; we also use navigator.vibrate as a hint
+   on Android/PWAs that support it. */
+function haptic(){
+  if (navigator.vibrate) try { navigator.vibrate(8); } catch(_){}
+}
+
+/* ───────── copy labels ───────── */
+async function copyLabels(){
+  const text = ALARM_DEFS.map((d,i)=>`${d.label}`).join('\n');
+  try{
+    if (navigator.clipboard?.writeText){
+      await navigator.clipboard.writeText(text);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
     }
-  } catch(e) {}
+    toast('Wekkerlabels gekopieerd');
+  } catch(e){ toast('Kopiëren niet gelukt'); }
 }
 
-/* ----- Haptic ----- */
-function haptic() { if (navigator.vibrate) navigator.vibrate(8); }
-
-/* ----- Toast ----- */
-let toastT = null;
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastT);
-  toastT = setTimeout(() => t.classList.remove('show'), 2400);
-}
-
-/* ----- In-app scheduled alarms (when app is open) ----- */
-let alarmTimers = [];
-function scheduleAlarms() {
-  alarmTimers.forEach(t => clearTimeout(t));
-  alarmTimers = [];
-  const now = new Date();
-  ['m1','m2'].forEach(method => {
-    if (method !== state.activeTab) return; // only schedule active method
-    const sched = KUUR.schedules[method].times;
-    sched.forEach((time, i) => {
-      if (!state.alarms[method][i]) return;
-      const today = todayDayNum();
-      if (today < 1 || today > KUUR.totalDays) return;
-      if (isTaken(method, today, i)) return;
-      const [h, m] = time.split(':').map(Number);
-      const target = new Date();
-      target.setHours(h, m, 0, 0);
-      let delay = target - now;
-      if (delay < 0) return; // already passed
-      if (delay > 6 * 60 * 60 * 1000) return; // only within 6h window
-      const tid = setTimeout(() => {
-        alarmTone();
-        toast(`💊 Tijd voor je flucloxacilline · ${time}`);
-        if ('Notification' in window && Notification.permission === 'granted') {
-          new Notification('Kuur · Flucloxacilline', {
-            body: `Inname om ${time} (${i+1}/4) — capsule met glas water`,
-            icon: './icons/icon-192.png',
-            tag: `kuur-${method}-${today}-${i}`,
-          });
-        }
-      }, delay);
-      alarmTimers.push(tid);
-    });
-  });
-}
-
-/* ----- Notification permission ----- */
-function requestNotifyPerm() {
-  if ('Notification' in window && Notification.permission === 'default') {
-    Notification.requestPermission();
-  }
-}
-
-/* ----- Settings modal ----- */
-function openSettings() {
-  document.getElementById('set-startdate').value = state.startDate;
-  document.getElementById('set-name').value = state.patientName;
-  document.getElementById('modal-settings').classList.add('show');
-}
-function closeSettings() { document.getElementById('modal-settings').classList.remove('show'); }
-function saveSettings() {
-  const sd = document.getElementById('set-startdate').value;
-  const nm = document.getElementById('set-name').value.trim();
-  if (sd) state.startDate = sd;
-  if (nm) state.patientName = nm;
-  saveState();
-  closeSettings();
-  initRender();
-  toast('Instellingen opgeslagen');
-}
-
-/* ----- Reset & export ----- */
-function resetCourse() {
-  if (!confirm('Weet je zeker dat je de hele kuur wilt resetten? Alle ingenomen markeringen worden gewist.')) return;
+/* ───────── reset ───────── */
+function resetCourse(){
   state = defaultState();
-  saveState();
-  initRender();
-  toast('Kuur gereset');
+  state.startDate = isoDay(today());
+  save();
+  setTab('today');
+  toast('Nieuwe kuur gestart');
 }
-function exportData() {
-  const data = JSON.stringify(state, null, 2);
-  const blob = new Blob([data], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `kuur-data-${new Date().toISOString().slice(0,10)}.json`;
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+function clearAll(){
+  try{ localStorage.removeItem(KEY); }catch(_){}
+  state = defaultState();
+  setTab('today');
+  toast('Lokale data gewist');
 }
 
-/* ----- Init / wire up ----- */
-function initRender() {
-  ['m1','m2'].forEach(m => { renderPills(m); refreshDayStrip(m); refreshStats(m); });
-  switchTab(state.activeTab);
-}
+/* ───────── helpers ───────── */
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-function wireEvents() {
-  document.querySelectorAll('.tab').forEach(t => {
-    t.addEventListener('click', () => switchTab(t.dataset.tab));
+/* ───────── boot ───────── */
+function boot(){
+  // tabs
+  $$('.tab').forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+  // top settings
+  $('#btnTopSettings').addEventListener('click', () => setTab('settings'));
+
+  // alarms
+  $('#btnCopyLabels').addEventListener('click', copyLabels);
+  $('#btnShowSteps').addEventListener('click', openSheet);
+  $('#sheetClose').addEventListener('click', closeSheet);
+  $('#sheetBackdrop').addEventListener('click', closeSheet);
+
+  // wake time (both inputs sync)
+  $('#wakeTime').addEventListener('change', e => {
+    state.wakeTime = e.target.value || ''; save(); renderAlarms();
   });
-  document.querySelectorAll('[data-action="ics"]').forEach(b => {
-    b.addEventListener('click', () => {
-      requestNotifyPerm();
-      downloadICS(b.dataset.method);
+  $('#wakeTime2').addEventListener('change', e => {
+    state.wakeTime = e.target.value || ''; save(); renderAlarms();
+  });
+  $('#btnClearSchedule').addEventListener('click', () => {
+    state.wakeTime = ''; save(); renderAlarms();
+    toast('Voorbeeldschema gewist');
+  });
+
+  // settings
+  $('#startDate').addEventListener('change', e => {
+    state.startDate = e.target.value || isoDay(today());
+    save(); renderToday(); renderProgress(); renderSettings();
+    toast('Startdatum bijgewerkt');
+  });
+  $('#btnReset').addEventListener('click', openDialog);
+  $('#btnClearAll').addEventListener('click', () => {
+    // Reuse dialog with different copy
+    $('#dialogTitle').textContent = 'Lokale data wissen?';
+    $('#dialogText').textContent  = 'Alle voortgang en instellingen worden gewist. Dit kan niet ongedaan worden gemaakt.';
+    $('#dlgConfirm').textContent  = 'Wis data';
+    $('#dlgConfirm').dataset.mode = 'clear';
+    openDialog();
+  });
+
+  $('#dlgCancel').addEventListener('click', closeDialog);
+  $('#dlgConfirm').addEventListener('click', () => {
+    const mode = $('#dlgConfirm').dataset.mode || 'reset';
+    closeDialog();
+    setTimeout(() => {
+      if (mode === 'clear') clearAll();
+      else resetCourse();
+      // restore default dialog copy
+      $('#dialogTitle').textContent = 'Nieuwe kuur starten?';
+      $('#dialogText').textContent  = 'Dit wist je lokale voortgang en start opnieuw bij Dag 1.';
+      $('#dlgConfirm').textContent  = 'Opnieuw starten';
+      $('#dlgConfirm').dataset.mode = 'reset';
+    }, 300);
+  });
+  $('#dialogBackdrop').addEventListener('click', e => {
+    if (e.target.id === 'dialogBackdrop') closeDialog();
+  });
+
+  // restore tab
+  if (state.activeTab && ['today','alarms','guide','progress','settings'].includes(state.activeTab)){
+    setTab(state.activeTab);
+  } else {
+    setTab('today');
+  }
+
+  // initial renders for off-screen pages so numbers are correct on first switch
+  renderProgress();
+  renderSettings();
+
+  // service worker
+  if ('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
     });
-  });
-  document.querySelectorAll('[data-action="alarm-test"]').forEach(b => {
-    b.addEventListener('click', () => {
-      requestNotifyPerm();
-      alarmTone();
-      toast('Wekker geluid getest');
-    });
-  });
-  document.getElementById('btn-settings').addEventListener('click', openSettings);
-  document.getElementById('set-cancel').addEventListener('click', closeSettings);
-  document.getElementById('set-save').addEventListener('click', saveSettings);
-  document.getElementById('modal-settings').addEventListener('click', (e) => {
-    if (e.target.id === 'modal-settings') closeSettings();
-  });
-  document.getElementById('btn-reset').addEventListener('click', resetCourse);
-  document.getElementById('btn-export-data').addEventListener('click', exportData);
+  }
 }
 
-/* ----- Service worker ----- */
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
-}
-
-/* ----- Boot ----- */
-document.addEventListener('DOMContentLoaded', () => {
-  // Default: jump to today's day
-  const today = todayDayNum();
-  if (state.activeDayM1 === 1 && today > 1) state.activeDayM1 = today;
-  if (state.activeDayM2 === 1 && today > 1) state.activeDayM2 = today;
-
-  wireEvents();
-  initRender();
-  scheduleAlarms();
-
-  // Refresh stats every minute (for next-dose countdown)
-  setInterval(() => {
-    if (state.activeTab === 'm1' || state.activeTab === 'm2') refreshStats(state.activeTab);
-  }, 60 * 1000);
-
-  // Re-schedule alarms at midnight
-  setInterval(scheduleAlarms, 60 * 60 * 1000);
-});
+document.addEventListener('DOMContentLoaded', boot);
 </script>
 </body>
 </html>
